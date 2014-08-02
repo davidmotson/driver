@@ -30,7 +30,6 @@ public class Driver {
 	
 	@Path("/login")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String login(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -46,7 +45,6 @@ public class Driver {
 	
 	@Path("/credtest")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String credTest(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -67,7 +65,6 @@ public class Driver {
 	
 	@Path("/create")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String createAccount(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -113,7 +110,6 @@ public class Driver {
 	
 	@Path("/summon")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String summon(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -137,7 +133,6 @@ public class Driver {
 	
 	@Path("/unsummon")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String unsummon(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -155,7 +150,6 @@ public class Driver {
 	
 	@Path("/favorite")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String favorite(String postData){
 		JSONObject data = new JSONObject(postData);
@@ -181,7 +175,6 @@ public class Driver {
 	
 	@Path("/unfavorite")
 	@POST
-	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public String unfavorite(String postData){
 		JSONObject data = new JSONObject(postData);
