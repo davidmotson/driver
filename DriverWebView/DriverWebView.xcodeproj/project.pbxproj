@@ -1,0 +1,472 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A4CDC25198D716C009BCC1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC24198D716C009BCC1A /* Foundation.framework */; };
+		3A4CDC27198D716C009BCC1A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC26198D716C009BCC1A /* CoreGraphics.framework */; };
+		3A4CDC29198D716C009BCC1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC28198D716C009BCC1A /* UIKit.framework */; };
+		3A4CDC2F198D716C009BCC1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A4CDC2D198D716C009BCC1A /* InfoPlist.strings */; };
+		3A4CDC31198D716C009BCC1A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC30198D716C009BCC1A /* main.m */; };
+		3A4CDC35198D716C009BCC1A /* RDAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC34198D716C009BCC1A /* RDAppDelegate.m */; };
+		3A4CDC38198D716C009BCC1A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3A4CDC36198D716C009BCC1A /* Main.storyboard */; };
+		3A4CDC3B198D716C009BCC1A /* RDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC3A198D716C009BCC1A /* RDViewController.m */; };
+		3A4CDC3D198D716C009BCC1A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A4CDC3C198D716C009BCC1A /* Images.xcassets */; };
+		3A4CDC44198D716C009BCC1A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC43198D716C009BCC1A /* XCTest.framework */; };
+		3A4CDC45198D716C009BCC1A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC24198D716C009BCC1A /* Foundation.framework */; };
+		3A4CDC46198D716C009BCC1A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A4CDC28198D716C009BCC1A /* UIKit.framework */; };
+		3A4CDC4E198D716C009BCC1A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3A4CDC4C198D716C009BCC1A /* InfoPlist.strings */; };
+		3A4CDC50198D716C009BCC1A /* DriverWebViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A4CDC4F198D716C009BCC1A /* DriverWebViewTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3A4CDC47198D716C009BCC1A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3A4CDC19198D716C009BCC1A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3A4CDC20198D716C009BCC1A;
+			remoteInfo = DriverWebView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3A4CDC21198D716C009BCC1A /* DriverWebView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DriverWebView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A4CDC24198D716C009BCC1A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		3A4CDC26198D716C009BCC1A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3A4CDC28198D716C009BCC1A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		3A4CDC2C198D716C009BCC1A /* DriverWebView-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DriverWebView-Info.plist"; sourceTree = "<group>"; };
+		3A4CDC2E198D716C009BCC1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A4CDC30198D716C009BCC1A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3A4CDC32198D716C009BCC1A /* DriverWebView-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DriverWebView-Prefix.pch"; sourceTree = "<group>"; };
+		3A4CDC33198D716C009BCC1A /* RDAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDAppDelegate.h; sourceTree = "<group>"; };
+		3A4CDC34198D716C009BCC1A /* RDAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDAppDelegate.m; sourceTree = "<group>"; };
+		3A4CDC37198D716C009BCC1A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3A4CDC39198D716C009BCC1A /* RDViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RDViewController.h; sourceTree = "<group>"; };
+		3A4CDC3A198D716C009BCC1A /* RDViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RDViewController.m; sourceTree = "<group>"; };
+		3A4CDC3C198D716C009BCC1A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3A4CDC42198D716C009BCC1A /* DriverWebViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DriverWebViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3A4CDC43198D716C009BCC1A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		3A4CDC4B198D716C009BCC1A /* DriverWebViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DriverWebViewTests-Info.plist"; sourceTree = "<group>"; };
+		3A4CDC4D198D716C009BCC1A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		3A4CDC4F198D716C009BCC1A /* DriverWebViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DriverWebViewTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3A4CDC1E198D716C009BCC1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC27198D716C009BCC1A /* CoreGraphics.framework in Frameworks */,
+				3A4CDC29198D716C009BCC1A /* UIKit.framework in Frameworks */,
+				3A4CDC25198D716C009BCC1A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A4CDC3F198D716C009BCC1A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC44198D716C009BCC1A /* XCTest.framework in Frameworks */,
+				3A4CDC46198D716C009BCC1A /* UIKit.framework in Frameworks */,
+				3A4CDC45198D716C009BCC1A /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3A4CDC18198D716C009BCC1A = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC2A198D716C009BCC1A /* DriverWebView */,
+				3A4CDC49198D716C009BCC1A /* DriverWebViewTests */,
+				3A4CDC23198D716C009BCC1A /* Frameworks */,
+				3A4CDC22198D716C009BCC1A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3A4CDC22198D716C009BCC1A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC21198D716C009BCC1A /* DriverWebView.app */,
+				3A4CDC42198D716C009BCC1A /* DriverWebViewTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3A4CDC23198D716C009BCC1A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC24198D716C009BCC1A /* Foundation.framework */,
+				3A4CDC26198D716C009BCC1A /* CoreGraphics.framework */,
+				3A4CDC28198D716C009BCC1A /* UIKit.framework */,
+				3A4CDC43198D716C009BCC1A /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3A4CDC2A198D716C009BCC1A /* DriverWebView */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC33198D716C009BCC1A /* RDAppDelegate.h */,
+				3A4CDC34198D716C009BCC1A /* RDAppDelegate.m */,
+				3A4CDC36198D716C009BCC1A /* Main.storyboard */,
+				3A4CDC39198D716C009BCC1A /* RDViewController.h */,
+				3A4CDC3A198D716C009BCC1A /* RDViewController.m */,
+				3A4CDC3C198D716C009BCC1A /* Images.xcassets */,
+				3A4CDC2B198D716C009BCC1A /* Supporting Files */,
+			);
+			path = DriverWebView;
+			sourceTree = "<group>";
+		};
+		3A4CDC2B198D716C009BCC1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC2C198D716C009BCC1A /* DriverWebView-Info.plist */,
+				3A4CDC2D198D716C009BCC1A /* InfoPlist.strings */,
+				3A4CDC30198D716C009BCC1A /* main.m */,
+				3A4CDC32198D716C009BCC1A /* DriverWebView-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3A4CDC49198D716C009BCC1A /* DriverWebViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC4F198D716C009BCC1A /* DriverWebViewTests.m */,
+				3A4CDC4A198D716C009BCC1A /* Supporting Files */,
+			);
+			path = DriverWebViewTests;
+			sourceTree = "<group>";
+		};
+		3A4CDC4A198D716C009BCC1A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3A4CDC4B198D716C009BCC1A /* DriverWebViewTests-Info.plist */,
+				3A4CDC4C198D716C009BCC1A /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3A4CDC20198D716C009BCC1A /* DriverWebView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A4CDC53198D716C009BCC1A /* Build configuration list for PBXNativeTarget "DriverWebView" */;
+			buildPhases = (
+				3A4CDC1D198D716C009BCC1A /* Sources */,
+				3A4CDC1E198D716C009BCC1A /* Frameworks */,
+				3A4CDC1F198D716C009BCC1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DriverWebView;
+			productName = DriverWebView;
+			productReference = 3A4CDC21198D716C009BCC1A /* DriverWebView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3A4CDC41198D716C009BCC1A /* DriverWebViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3A4CDC56198D716C009BCC1A /* Build configuration list for PBXNativeTarget "DriverWebViewTests" */;
+			buildPhases = (
+				3A4CDC3E198D716C009BCC1A /* Sources */,
+				3A4CDC3F198D716C009BCC1A /* Frameworks */,
+				3A4CDC40198D716C009BCC1A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3A4CDC48198D716C009BCC1A /* PBXTargetDependency */,
+			);
+			name = DriverWebViewTests;
+			productName = DriverWebViewTests;
+			productReference = 3A4CDC42198D716C009BCC1A /* DriverWebViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3A4CDC19198D716C009BCC1A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = RD;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Rahul Datta";
+				TargetAttributes = {
+					3A4CDC41198D716C009BCC1A = {
+						TestTargetID = 3A4CDC20198D716C009BCC1A;
+					};
+				};
+			};
+			buildConfigurationList = 3A4CDC1C198D716C009BCC1A /* Build configuration list for PBXProject "DriverWebView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3A4CDC18198D716C009BCC1A;
+			productRefGroup = 3A4CDC22198D716C009BCC1A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3A4CDC20198D716C009BCC1A /* DriverWebView */,
+				3A4CDC41198D716C009BCC1A /* DriverWebViewTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3A4CDC1F198D716C009BCC1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC3D198D716C009BCC1A /* Images.xcassets in Resources */,
+				3A4CDC2F198D716C009BCC1A /* InfoPlist.strings in Resources */,
+				3A4CDC38198D716C009BCC1A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A4CDC40198D716C009BCC1A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC4E198D716C009BCC1A /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3A4CDC1D198D716C009BCC1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC35198D716C009BCC1A /* RDAppDelegate.m in Sources */,
+				3A4CDC31198D716C009BCC1A /* main.m in Sources */,
+				3A4CDC3B198D716C009BCC1A /* RDViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3A4CDC3E198D716C009BCC1A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A4CDC50198D716C009BCC1A /* DriverWebViewTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3A4CDC48198D716C009BCC1A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3A4CDC20198D716C009BCC1A /* DriverWebView */;
+			targetProxy = 3A4CDC47198D716C009BCC1A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3A4CDC2D198D716C009BCC1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A4CDC2E198D716C009BCC1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		3A4CDC36198D716C009BCC1A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A4CDC37198D716C009BCC1A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3A4CDC4C198D716C009BCC1A /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3A4CDC4D198D716C009BCC1A /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3A4CDC51198D716C009BCC1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		3A4CDC52198D716C009BCC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3A4CDC54198D716C009BCC1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverWebView/DriverWebView-Prefix.pch";
+				INFOPLIST_FILE = "DriverWebView/DriverWebView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		3A4CDC55198D716C009BCC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverWebView/DriverWebView-Prefix.pch";
+				INFOPLIST_FILE = "DriverWebView/DriverWebView-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		3A4CDC57198D716C009BCC1A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DriverWebView.app/DriverWebView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverWebView/DriverWebView-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DriverWebViewTests/DriverWebViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		3A4CDC58198D716C009BCC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/DriverWebView.app/DriverWebView";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DriverWebView/DriverWebView-Prefix.pch";
+				INFOPLIST_FILE = "DriverWebViewTests/DriverWebViewTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3A4CDC1C198D716C009BCC1A /* Build configuration list for PBXProject "DriverWebView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A4CDC51198D716C009BCC1A /* Debug */,
+				3A4CDC52198D716C009BCC1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3A4CDC53198D716C009BCC1A /* Build configuration list for PBXNativeTarget "DriverWebView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A4CDC54198D716C009BCC1A /* Debug */,
+				3A4CDC55198D716C009BCC1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		3A4CDC56198D716C009BCC1A /* Build configuration list for PBXNativeTarget "DriverWebViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3A4CDC57198D716C009BCC1A /* Debug */,
+				3A4CDC58198D716C009BCC1A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3A4CDC19198D716C009BCC1A /* Project object */;
+}
