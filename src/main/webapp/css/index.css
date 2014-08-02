@@ -1,0 +1,11 @@
+html {
+  text-align: center;
+}
+
+body {
+  background-color: white; 
+}
+
+.page {
+  display: none;
+}

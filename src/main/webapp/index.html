@@ -2,36 +2,56 @@
 <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
 <link rel="stylesheet" type="text/css" href="css/index.css">
 
-<div id="header">
-  <div id="splash-screen">
-    Filler Text
-    <button class="">Get me a driver!</button>
-  </div>
+<script src="javascript/jquery-2.1.1.min.js"> </script>
+<script src="javascript/index.js"> </script>
+<html>
+  <head>
+  </head>
 
-  <div id="login" class="login">
-  </div>
-  
-  <div id="login-uber" class="login">
-  </div>
-  
-  <div id="login-lyft" class="login">
-  </div>
-  
-  <div id="login-sidecar" class="login">
-  </div>
-  
-  <div id="login-flywheel" class="login">
-  </div>
-  
-  <div id="map" >
-  </div>
-  
-  <div id="options" >
-  </div>
-  
-  <div id="selection" >
-  </div>
-  
-  <div id="finish" >
-  </div>
-</div>
+  <body>
+    <div id="splash-screen" class="page" style="display:block;">
+      Filler Text
+      <div>
+        <button class="btn btn-primary">Get me a driver!</button>
+      </div>
+    </div>
+
+    <div id="login" class="page login">
+      <div class="page-header">Login to driver</div>
+      <form action="login.json">
+        <div> 
+          Username:
+          <input type="text"> 
+        </div>
+        <div> 
+          Password:
+          <input type="password"> 
+        </div>
+      </form>
+    </div>
+    
+    <div id="login-uber" class="page login">
+    </div>
+    
+    <div id="login-lyft" class="page login">
+    </div>
+    
+    <div id="login-sidecar" class="page login">
+    </div>
+    
+    <div id="login-flywheel" class="page login">
+    </div>
+    
+    <div id="map" class="page">
+    </div>
+    
+    <div id="options" class="page">
+    </div>
+    
+    <div id="selection" class="page">
+    </div>
+    
+    <div id="finish" class="page">
+    </div>
+  </body>
+</html>
