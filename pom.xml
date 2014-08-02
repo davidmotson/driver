@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.davidm</groupId>
-	<artifactId>webapp</artifactId>
+	<artifactId>driver</artifactId>
 	<packaging>war</packaging>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>webapp Maven Webapp</name>
@@ -36,6 +36,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>webapp</finalName>
+		<finalName>driver</finalName>
 	</build>
 </project>
