@@ -102,6 +102,7 @@ public class Driver {
 			if(car.getString("type").equals("uber") && generator.nextBoolean()){
 				car.put("subtype", "Uber XL");
 			}
+			cars.put(car);
 		}
 		output.put("cars",cars);
 		
