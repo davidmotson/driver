@@ -18,7 +18,7 @@
 {
     [super viewDidLoad];
 	[super viewDidLoad];
-    NSString *fullURL = @"http://google.com";
+    NSString *fullURL = @"http://107.150.8.38:8080/driver/";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
     [_viewWeb loadRequest:requestObj];}
