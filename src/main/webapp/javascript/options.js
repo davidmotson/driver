@@ -1,5 +1,6 @@
 var filteredOptions = [];
 var cardict = {};
+var carInfo = {};
 
 var newOption = function(price, time, id, type, subtype) {
   d = {
@@ -12,7 +13,7 @@ var newOption = function(price, time, id, type, subtype) {
   return d;
 }
 
-function initializeOptions(){
+function initializeCarOptions(){
     token = document.cookie;
     $.ajax({ 
       url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
@@ -70,7 +71,7 @@ function secondToMin(seconds){
 
 function addDOMOption(option){
   e = $("#tempListItem").clone();
-  e.attr("id", "");
+  e.attr("id", option["id"]);
   e.find(".type").text(option["type"] + ": " + option["subtype"]);
   e.find(".time").text(option["time"] + " min");
   e.find(".price").text("$" + option["price"]);
@@ -78,13 +79,47 @@ function addDOMOption(option){
   e.show();
 }
 
+function callCar(id){
+  token = document.cookie;
+  $.ajax({
+    url: '/driver/api/summon',
+    type: 'post',
+    data: {
+      token: token,
+      id: id,
+      latStart: lat, 
+      latEnd: latEnd, 
+      longStart: lon, 
+      longEnd: longEnd,
+    },
+    dataType: 'json',
+  }).done(function(data){
+    parseColCar(data);
+  })
+}
+
 $(document).ready(function(){
   test = newOption(5, 4, 3, "Lyft", "Car")
   addDOMOption(test);
-	$("#opt_btn_f").click(function(){
-		sortByPrice();
-	});
-	$("#opt_btn_s").click(function(){
-		sortByTime();
-	});
+  $("#opt_btn_f").click(function(){
+    sortByPrice();
+  });
+  $("#opt_btn_s").click(function(){
+    sortByTime();
+  });
+
+  $(".car-col").click(function(){
+    c = $(".car-col").children(".call-car").first();
+    c.attr('id', $(this).id)
+    callCar(id);
+  });
+
+  $(".call-car").click(function(e){
+    e.preventDefault();
+    e.stopPropagation()
+    $(".call-car").hide();
+    var id = $(this).id;
+    callCar(id);
+  });
+
 })
