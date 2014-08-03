@@ -120,7 +120,6 @@ $(document).ready(function(){
   $(".car-col").click(function(){
     c = $(".car-col").children(".call-car").first();
     c.attr('id', $(this).id)
-    callCar(id);
   });
 
   $(".call-car").click(function(e){
