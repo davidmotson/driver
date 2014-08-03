@@ -64,7 +64,7 @@ public class Driver {
 			user.flywheelToken = Flywheel.login(user.getEmail(), user.getEmail()).token;
 			return "{success: true, token: '" + token + "', user: " + user.toJsonObject().toString()+"}";
 		}
-		return "{success: false}";
+		return "{\"success\": false}";
 		
 	}
 	
