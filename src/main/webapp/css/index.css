@@ -2,6 +2,14 @@ html {
   text-align: center;
 }
 
+header {
+  background-color: #0970B9;
+  color: white;
+  font-style: helvetica;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 body {
   background-color: white;
 }
@@ -9,10 +17,38 @@ body {
 .page {
   display: none;
 }
+
+/*login*/
+
+.login-credentials {
+  margin-bottom: 10
+}
+
+.left-button {
+  position: absolute;
+  bottom: 10;
+  left:10;
+  text-align: left;
+  margin-right: 10;
+  margin-left: 10;
+}
+
+.right-button {
+  position: absolute;
+  bottom: 10;
+  right:10;
+  text-align: right;
+  margin-right: 10;
+  margin-left: 10;
+}
+
+/*map*/
+
 #map-canvas{
 	height: 100%;
 	width: 100%;
 }
+
 div.centerMarker{
 position:absolute;
   /*url of the marker*/
@@ -84,3 +120,4 @@ div#searchLocation{
   font-size: 13px;
   font-weight: 300;
 }
+
