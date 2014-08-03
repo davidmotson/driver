@@ -6,34 +6,88 @@
 
     <script src="javascript/jquery-2.1.1.min.js"> </script>
     <script src="javascript/index.js"> </script>
+  
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
-
+  <header>
+    driver
+  </header>
   <body>
-    <div id="splash-screen" class="page" style="display:block;">
-      Filler Text
+    <div id="splash-screen" class="page" >
       <div>
-        <button class="btn btn-primary">Get me a driver!</button>
+        driver
+      </div>
+      <div>
+        <button class="btn btn-primary" onclick="goto('login');return false;">
+          Get me a driver!
+        </button>
       </div>
     </div>
 
     <div id="login" class="page login">
-      <div class="page-header">Login to driver</div>
-      <form action="login.json">
-        <div> 
-          Username:
-          <input type="text"> 
-        </div>
-        <div> 
-          Password:
-          <input type="password"> 
-        </div>
-      </form>
+      <div class="page-header">
+        Login to driver
+      </div>
+      <div class="login-credentials"> 
+        Email
+        <input type="email" class="form-control"> 
+      </div>
+      <div class="login-credentials"> 
+        Password
+        <input type="password" class="form-control"> 
+      </div>
+      <button class="btn btn-primary left-button" onclick="goto('signup');return false;">
+        Make Account
+      </button>
+      <button class="btn btn-primary right-button" onclick="goto('map');return false;">
+        Login
+      </button>
+    </div>
+
+    <div id="signup" class="page login">
+      <div class="page-header">
+        Login to driver
+      </div>
+      <div class="login-credentials"> 
+        Email
+        <input type="email" class="form-control"> 
+      </div>
+      <div class="login-credentials"> 
+        Password
+        <input type="password" class="form-control"> 
+      </div>
+      <div class="login-credentials"> 
+        Confirm Password
+        <input type="password" class="form-control"> 
+      </div>
+      <button class="btn btn-primary right-button" onclick="goto('map');return false;">
+        Create Account
+      </button>
     </div>
     
     <div id="login-uber" class="page login">
+      <div class="page-header">
+        Login to Uber
+      </div>
+      <div class="login-credentials"> 
+        Email
+        <input type="email" class="form-control"> 
+      </div>
+      <div class="login-credentials"> 
+        Password
+        <input type="password" class="form-control"> 
+      </div>
     </div>
     
     <div id="login-lyft" class="page login">
+      <div class="page-header">
+        Login to Lyft
+      </div>
+      </div>
+      <div class="login-credentials"> 
+        Confirmation Code
+        <input type="num" class="form-control"> 
+      </div>
     </div>
     
     <div id="login-sidecar" class="page login">
