@@ -79,7 +79,7 @@ var faveMover = function(e){
 			}];
 			simply.on('singleClick',carMover);
 			simply.subtitle(car[carPointer].type);
-			simply.body("$"+car[carPointer].price/100);
+			simply.body("$"+(car[carPointer].price/100));
 		});
 	}
 }
@@ -91,14 +91,14 @@ var carMover = function(e){
 		}
 		carPointer--;
 		simply.subtitle(car[carPointer].type);
-		simply.body("$"+car[carPointer].price/100);
+		simply.body("$"+(car[carPointer].price/100));
 	}else if(e.button === "down"){
 		if(carPointer == cars.length-1){
 			return;
 		}
 		carPointer++;
 		simply.subtitle(car[carPointer].type);
-		simply.body("$"+car[carPointer].price/100);
+		simply.body("$"+(car[carPointer].price/100));
 	}else if(e.button === "select"){
 		simply.subtitle("Fetching Ride");
 		simply.body("Please Wait...")
