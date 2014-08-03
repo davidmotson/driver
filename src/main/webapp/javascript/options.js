@@ -46,8 +46,7 @@ function secondToMin(seconds){
 function addDOMOption(option){
   e = $("#tempListItem").clone();
   e.attr("id", "");
-  e.find(".type").text(option["type"] + ":");
-  e.find(".subtype").text(option["subtype"]);
+  e.find(".type").text(option["type"] + ": " + option["subtype"]);
   e.find(".time").text(option["time"] + " min");
   e.find(".price").text("$" + option["price"]);
   el = $("#options-list").append(e);

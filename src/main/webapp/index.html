@@ -29,7 +29,7 @@
   </div>
 
   <header>
-    <img src="logo@2x.png" class="logo" >
+    <img id="header-logo" src="logo@2x.png" class="logo" style="display:none;">
   </header>
   <body>
     <div id="page-header">
@@ -125,12 +125,11 @@
     <div id="options" class="page">
       <ul id='options-list' class='list-group'>
         <li id="tempListItem" class='list-group-item' style="display:none;">
-          <div class="container-fluid">
-            <div class="navbar-text navbar-left type">Uber:</div>
-            <div class="navbar-text navbar-left subtype">Subtype</div>
-            <div class="navbar-text navbar-right price">Price </div>
-            <div class="navbar-text navbar-right">|</div>
-            <div class="navbar-text navbar-right time"> Time</div>
+          <div class="container">
+            <div class="row" style>
+                <div class="col-xs-2 navbar-left type" style="width:100px;">Uber: Subtype</div>
+                <div class="col-xs-2 navbar-right price-time" style="width:130px; ">Time | Price</div>
+            </div>
           </div>
         </li>
       </ul>
