@@ -2,12 +2,6 @@ function initialize() {
   var lat = 37.385696;
   var lon = -122.066327;
   var markers = [];
-  var myOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP]
-    },
-    disableDefaultUI: true
-  }; // here´s the array of controls
   var map = new google.maps.Map(document.getElementById('map-canvas'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
@@ -15,13 +9,6 @@ function initialize() {
       mapTypeIds: [google.maps.MapTypeId.RoadMAP]
     }
   });
-
-  var myOptions = {
-    mapTypeControlOptions: {
-      mapTypeIds: [google.maps.MapTypeId.ROADMAP]
-    },
-    disableDefaultUI: true
-  }; // here´s the array of controls
 
  $('<div/>').addClass('centerMarker').appendTo(map.getDiv())
 
