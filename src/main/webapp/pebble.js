@@ -23,7 +23,7 @@ ajax({
 		simply.body("Error Logging In");
 	}else{
 		token = result.token;
-		favorites = result.favorites;
+		favorites = result.user.favorites;
 		if(favorites.length == 0){
 			simply.body("You have no Favorite places to go");
 			return false;
