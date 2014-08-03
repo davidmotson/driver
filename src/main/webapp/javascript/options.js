@@ -47,7 +47,7 @@ function sortPriceHelper(op1, op2){
 
 function sortByPrice(){
   $("#options-list").children().each(function(i, e){
-    if(e.attr('id') != "tempListItem") e.remove();
+    if(e.id != "tempListItem") e.remove();
   });
   filteredOptions.sort(sortPriceHelper);
   sorted = filteredOptions;
@@ -63,7 +63,7 @@ function sortTimeHelper(op1, op2){
 
 function sortByTime(){
   $("#options-list").children().each(function(i, e){
-    if(e.attr('id') != "tempListItem") e.remove();
+    if(e.id != "tempListItem") e.remove();
   });
   filteredOptions.sort(sortPriceHelper);
   sorted = filteredOptions;
