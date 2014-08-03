@@ -1,6 +1,5 @@
-
-var filteredOptions;
-
+var filteredOptions = [];
+var cardict = {};
 
 var newOption = function(price, time, id, type, subtype) {
   d = {
@@ -13,11 +12,25 @@ var newOption = function(price, time, id, type, subtype) {
   return d;
 }
 
-// var initializeOptions(){
-//     $.ajax({ 
-//       url
-//     });
-// }
+function initializeOptions(){
+    token = document.cookie;
+    $.ajax({ 
+      url: ' /api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
+            '&long-start='+lon+'&long-end='+destLong,
+      type: 'GET'
+    }).done(function(data){
+      cars = data["cars"];
+      var l = cars.length;
+      for(i = 0; i < l; i++){
+        console.log(car);
+        car = cars[i];
+        option = newOption(car["price"], car["eta"], car["id"], car["type"], car["subtype"])
+        filteredOptions.push(option);
+        cardict[car["id"]] = option; 
+      }
+      sortByPrice()
+    })
+}
 
 function sortPriceHelper(op1, op2){
   return (op1["price"] - op2["price"]);
