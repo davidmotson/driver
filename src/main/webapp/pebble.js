@@ -6,7 +6,6 @@ var favorites;
 var cars;
 var summoned;
 simply.fullscreen(true);
-simply.scrollable(true);
 simply.text({
 	title: "Driver",
 	subtitle: "Welcome to Driver",
@@ -30,7 +29,7 @@ ajax({
 		}
 		simply.subtitle("Where to?");
 		simply.body(favorites[favePointer].name);
-		simply.on('singleClick',faceMover);
+		simply.on('singleClick',faveMover);
 
 	}
 },function(result){
