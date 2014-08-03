@@ -23,7 +23,11 @@ function initializeCarOptions(){
       success: function(data){
         console.log("here");
         console.log(data);
-        cars = data.cars;
+        //cars = data.cars;
+        //filler data because yay server crashes! 
+        cars = [{type: "Uber", subtype: "Classic", eta: "5", price: "10"},
+                {type: "Lyft", eta: "7", price: "12"},
+                {type: "Sidecar", eta: "Tan Mitsubishi Outlander", price: "13"}]
         var l = cars.length;
         for(i = 0; i < l; i++){
           console.log(car);
@@ -98,7 +102,8 @@ function callCar(id){
     },
     dataType: 'json',
   }).done(function(data){
-    parseColCar(data);
+    car = cardict[id];
+    parseColCar({type: car.type, price: car.price, eta: car.eta});
   })
 }
 
