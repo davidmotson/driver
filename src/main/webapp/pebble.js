@@ -17,5 +17,5 @@ ajax({
 	type: "json",
 	data: {username: username, password: password},
 }, function(result){
-	simply.body(result);
+	simply.body(""+result);
 });
