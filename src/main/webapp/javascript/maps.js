@@ -76,7 +76,3 @@ function initialize() {
     searchBox.setBounds(bounds);
   });
 }
-$(document).ready(function(){
-
-google.maps.event.addDomListener(window, 'load', initialize);
-});

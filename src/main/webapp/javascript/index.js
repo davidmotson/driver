@@ -17,11 +17,11 @@ function goto(page_id) {
   if(PageNames[page_id]){
     $("#page-header").text(PageNames[page_id]);
   } 
-  if(page_id = "options") {
+  /*if(page_id = "options") {
     initializeOptions();
-  }
+  }*/
   if(page_id == "map"){
-    //initialize();
+    initialize();
   }
 }
 
