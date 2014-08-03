@@ -20,6 +20,7 @@ ajax({
 		simply.body("Error Logging In");
 	}else{
 		token = result.token;
+		simply.body("Success");
 	}
 },function(result){
 	simply.body("Error Logging In");
