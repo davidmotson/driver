@@ -3,9 +3,13 @@ function goto(page_id) {
   $(".page").hide();
   $("#"+page_id).show();
   $("header").show();
+  if(page_id == "map"){
+    initialize();
+  }
 }
 
 $(document).ready(function(){
+
   $("form button").click(function(e){
     e.preventDefault();
   })
