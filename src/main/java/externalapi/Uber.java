@@ -23,6 +23,7 @@ public class Uber {
 	public Uber(String token, JSONObject self){
 		this.token = token;
 		this.self = self;
+		success = true;
 	}
 
 	public static Uber login(String email, String password){
