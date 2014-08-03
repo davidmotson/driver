@@ -23,14 +23,14 @@ function initializeCarOptions(){
     }).done(function(data){
       console.log("here");
       console.log(data);
-      cars = data["cars"];
+      cars = data.cars;
       var l = cars.length;
       for(i = 0; i < l; i++){
         console.log(car);
         car = cars[i];
-        option = newOption(car["price"], car["eta"], car["id"], car["type"], car["subtype"])
+        option = newOption(car.price, car.eta, car.id, car.type, car.subtype)
         filteredOptions.push(option);
-        cardict[car["id"]] = option; 
+        cardict[car.id] = option; 
       }
       sortByPrice();
     })
@@ -44,7 +44,8 @@ function sortByPrice(){
   $("#options-table").each(function(i, e){
     if(e.attr(id) != "tempListItem") e.remove();
   });
-  sorted = filteredOptions.sort(sortPriceHelper);
+  filteredOptions.sort(sortPriceHelper);
+  sorted = filteredOptions;
   l = sorted.length;
   for (i = 0; i<l; i++){
     addDOMOption(sorted[i]);
@@ -59,7 +60,8 @@ function sortByTime(){
   $("#options-table").each(function(i, e){
     if(e.attr(id) != "tempListItem") e.remove();
   });
-  sorted = filteredOptions.sort(sortTimeHelper);
+  filteredOptions.sort(sortPriceHelper);
+  sorted = filteredOptions;
   l = sorted.length;
   for (i = 0; i < l; i++){
     addDOMOption(sorted[i]);
