@@ -8,6 +8,7 @@
 
 #import "RDViewController.h"
 
+CLLocationManager *locationManager;
 @interface RDViewController ()
 
 @end
@@ -16,12 +17,34 @@
 
 - (void)viewDidLoad
 {
+
     [super viewDidLoad];
-	[super viewDidLoad];
-    NSString *fullURL = @"http://google.com";
+	NSString *fullURL = @"http://107.150.8.38:8080/driver/";
     NSURL *url = [NSURL URLWithString:fullURL];
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
-    [_viewWeb loadRequest:requestObj];}
+    [_viewWeb loadRequest:requestObj];
+	locationManager = [[CLLocationManager alloc] init];
+    locationManager.distanceFilter = kCLDistanceFilterNone;
+    locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
+    [locationManager startUpdatingLocation];
+		
+}
+
+- (void)viewDidAppear
+{
+	//float latitude = locationManager.location.coordinate.latitude;
+	//float longitude = locationManager.location.coordinate.longitude;
+	float latitude = 37.386541;
+	float longitude = -122.067029;
+	NSString *latString = [NSString stringWithFormat:@"%f", latitude];
+	NSString *longString = [NSString stringWithFormat:@"%f", longitude];
+	NSString *latRequest = @"var lat=";
+	NSString *lonRequest = @"var lon=";
+	NSString *semi = @";";
+	NSString *space = @" ";
+	NSString *jsInject = [NSString stringWithFormat:@"%@%@%@%@%@%@%@", latRequest,latString, semi, space, lonRequest, longString, semi];
+	[_viewWeb stringByEvaluatingJavaScriptFromString:jsInject];
+}
 
 - (void)didReceiveMemoryWarning
 {
@@ -33,5 +56,7 @@
 {
     return YES;
 }
+
+
 
 @end

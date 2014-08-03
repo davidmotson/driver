@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
+
 
 @interface RDViewController : UIViewController
+
 @property (strong, nonatomic) IBOutlet UIWebView *viewWeb;
+
 
 @end
