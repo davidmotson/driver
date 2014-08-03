@@ -107,7 +107,7 @@ $(document).ready(function(){
 
   $("validate-lyft-credentials").click(function(){ 
     var username = $("#lyft-email").val();
-    var password = $("#lyft-password").val();
+    var password = $("#lyft-code").val();
     $.ajax({
       url: '/api/credtest',
       type: 'POST',
@@ -123,6 +123,8 @@ $(document).ready(function(){
       } else {
         error.text("There was an error with your Username/Password");
         error.show();
+        $("pre-lyft-text").show();
+        $("post-lyft-text").hide();
       }
     });
   });
@@ -132,12 +134,18 @@ $(document).ready(function(){
     e.preventDefault();
   })
   sendLyftCode = function(){
-    var phone = $("#lyft-phone").text();
-    //Lyft send code? 
+    var phone = $("#lyft-phone").val();
+    $.ajax({
+      url: '/api/getcode/'+phone,
+      type: 'GET',
+    }).done(function(){
+      $("pre-lyft-text").hide();
+      $("post-lyft-text").show();
+    })
   }
 
   $("validate-sidecar-credentials").click(function(){ 
-    var username = $("#sidecar-email").val();
+    var username = $("#sidecar-phone").val();
     var password = $("#sidecar-password").val();
     $.ajax({
       url: '/api/credtest',
@@ -185,7 +193,7 @@ $(document).ready(function(){
   $("#driver-signup").click(function(){
     if (validateFlywheelCredentials()){
       $.ajax({
-        url: '/api/credtest',
+        url: '/api/create',
         type: 'POST',
         data: JSON.stringify({
           username: $("#driver-email").val(),
@@ -196,11 +204,11 @@ $(document).ready(function(){
             password: $("#uber-password").val(),
           },
           lyft: {
-            username: $("#lyft-email").val(),
-            password: $("#lyft-password").val(),
+            username: $("#lyft-phone").val(),
+            password: $("#lyft-code").val(),
           }, 
           sidecar: {
-            username: $("#sidecar-email").val(),
+            username: $("#sidecar-phone").val(),
             password: $("#sidecar-password").val(),
           },
           flywheel: {
