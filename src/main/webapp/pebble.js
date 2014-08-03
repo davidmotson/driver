@@ -6,7 +6,6 @@ var favorites;
 var cars;
 var summoned;
 simply.fullscreen(true);
-simply.scrollable(true);
 simply.text({
 	title: "Driver",
 	subtitle: "Welcome to Driver",
@@ -23,7 +22,7 @@ ajax({
 		simply.body("Error Logging In");
 	}else{
 		token = result.token;
-		favorites = result.favorites;
+		favorites = result.user.favorites;
 		if(favorites.length == 0){
 			simply.body("You have no Favorite places to go");
 			return false;
