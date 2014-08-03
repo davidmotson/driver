@@ -2,40 +2,85 @@ html {
   text-align: center;
 }
 
-header {
-  background-color: #0970B9;
-  color: white;
-  font-style: helvetica;
-  padding-bottom: 10px;
-  padding-top: 10px;
-}
-
 body {
-  background-color: white; 
+  background-color: white;
 }
 
 .page {
   display: none;
 }
-
-.login-credentials {
-  margin-bottom: 10
+#map-canvas{
+	height: 100%;
+	width: 100%;
+}
+div.centerMarker{
+position:absolute;
+  /*url of the marker*/
+  background:url(http://maps.gstatic.com/mapfiles/markers2/marker.png) no-repeat;
+	/*center the marker*/
+	top:50%;left:50%;
+  z-index:1;
+	/*fix offset when needed*/
+	margin-left:-10px;
+  margin-top:-34px;
+  /*size of the image*/
+  height:34px;
+	width:20px;
+  cursor:pointer;
+}
+div#searchLocation{
+	z-index:2;
+}
+#searchBox{
+	width:70%;
+}
+#searchButton{
+	width:20%;
+}
+#target {
+  width: 345px;
 }
 
-.left-button {
-  position: absolute;
-  bottom: 10;
-  left:10;
-  text-align: left;
-  margin-right: 10;
-  margin-left: 10;
+.controls {
+  margin-top: 16px;
+  border: 1px solid transparent;
+  border-radius: 2px 0 0 2px;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  height: 32px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
 }
 
-.right-button {
-  position: absolute;
-  bottom: 10;
-  right:10;
-  text-align: right;
-  margin-right: 10;
-  margin-left: 10;
+#pac-input {
+  background-color: #fff;
+  padding: 0 11px 0 13px;
+  width: 400px;
+  font-family: Roboto;
+  font-size: 15px;
+  font-weight: 300;
+  text-overflow: ellipsis;
+}
+
+#pac-input:focus {
+  border-color: #4d90fe;
+  margin-left: -1px;
+  padding-left: 14px;  /* Regular padding-left + 1. */
+  width: 401px;
+}
+
+.pac-container {
+  font-family: Roboto;
+}
+
+#type-selector {
+  color: #fff;
+  background-color: #4d90fe;
+  padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 300;
 }
