@@ -87,7 +87,9 @@ img.splash-logo{
 	height: 35px;
 	width:100%;
 }
-
+#find_driver:active{
+	background-color: #3c8814;
+}
 #map-canvas{
 	height: 100%;
 	width: 100%;
