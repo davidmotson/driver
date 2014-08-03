@@ -1,6 +1,11 @@
 package api;
 
+import helpers.DBHelper;
+import helpers.Favorite;
+import helpers.User;
+
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
@@ -8,6 +13,7 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
@@ -24,6 +30,7 @@ import externalapi.Uber;
 public class Driver {
 	
 	List<String> VALID_SERVICES = new ArrayList<String>();
+	HashMap<String,User> sessions = new HashMap<String,User>();
 	Random generator = new Random();
 	
 	{
@@ -44,7 +51,14 @@ public class Driver {
 		if(!data.has("password")){
 			return "{success: false, fail-reason: 'no password'}";
 		}
-		return "{success: true, token: 'asdfsa01239kw0fas7df1123asd', fave-locs:[{id: 1, long: 123.2,lat: 132.34, name: 'my house'},{id: 2, long: 123.3, lat:132.65, name: 'cute girls house'}]}";
+		User user = DBHelper.getUser(data.getString("username"), data.getString("password"));
+		if(user != null){
+			String token = generateToken();
+			sessions.put(token, user);
+			user.timeout = System.currentTimeMillis() + 7200000;
+			return "{success: true, token: '" + token + "', user: " + user.toJsonObject().toString()+"}";
+		}
+		return "{success: false}";
 		
 	}
 	
@@ -94,7 +108,28 @@ public class Driver {
 				return "{success: false, fail-reason: 'no " + x + "'}";
 			}
 		}
-		return "{success: true, token: 'asdfsa01239kw0fas7df1123asd', fave-locs:[{id: 1, long: 123.2,lat: 132.34, name: 'my house'},{id: 2, long: 123.3, lat:132.65, name: 'cute girls house'}]}";
+		if(!Flywheel.login(data.getJSONObject("flywheel").getString("username"), data.getJSONObject("flywheel").getString("password")).success){
+			return "{success: false,fail-reason: 'bad flywheel credentials'}";
+		}
+		if(!Sidecar.login(data.getJSONObject("sidecar").getString("username"), data.getJSONObject("sidecar").getString("password")).success){
+			return "{success: false,fail-reason: 'bad sidecar credentials'}}";
+		}
+		String uberToken;
+		String lyftToken;
+		Uber uber = Uber.login(data.getJSONObject("uber").getString("username"), data.getJSONObject("uber").getString("password"));
+		if(!uber.success){
+			return "{success: false,fail-reason: 'bad uber credentials'}}";
+		}else{
+			uberToken = uber.token;
+		}
+		Lyft lyft = Lyft.login(data.getJSONObject("lyft").getString("username"), data.getJSONObject("lyft").getInt("password"));
+		if(!lyft.success){
+			return "{success: false,fail-reason: 'bad lyft credentials'}}";
+		}else{
+			lyftToken = lyft.token;
+		}
+		DBHelper.createUser(data.getString("username"), data.getString("password"), data.getString("phonenumber"), uberToken, lyftToken, data.getJSONObject("sidecar").getString("password"), data.getJSONObject("flywheel").getString("password"));
+		return login(postData);
 	}
 	
 	@Path("/info")
@@ -147,6 +182,15 @@ public class Driver {
 		return "{summoned: {car-image-url: 'http://lyftapi.s3.amazonaws.com/production/photos/320x200/1238612373_car.jpg', driver-image-url: 'https://lyftapi.s3.amazonaws.com/production/photos/320x200/1238612373_driver.jpg',type: 'uber', id: 5, eta: 300, price: 100, phone-number: '9139530509', car-desc: 'pimp as fuck'}}";
 	}
 	
+	@Path("/getcode/{phoneNumber}")
+	@GET
+	@Produces(MediaType.TEXT_PLAIN)
+	public String getCode(@PathParam("phoneNumber") String phoneNumber){
+		Lyft.sendConfirmationCode(phoneNumber);
+		return "";
+	}
+	
+	
 	@Path("/unsummon")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -181,12 +225,20 @@ public class Driver {
 		if(!data.has("long")){
 			return "{success: false, fail-reason: 'no long'}";
 		}
-		JSONObject output = new JSONObject();
-		output.put("lat", data.getDouble("lat"));
-		output.put("name", data.getString("name"));
-		output.put("long", data.getDouble("long"));
-		output.put("id", 5);
-		return "{success: true, faves:[{id: 1, long: 123.2,lat: 132.34, name: 'my house'},{id: 2, long: 123.3, lat:132.65, name: 'cute girls house'},"+output.toString()+"]}";
+		if(sessions.containsKey(data.getString("token"))){
+			if(!DBHelper.createFavorite(sessions.get(data.getString("token")).getId(), data.getDouble("lat"), data.getDouble("long"), data.getString("name"))){
+				return "{success: false}";
+			}else{
+				JSONArray output = new JSONArray();
+				for(Favorite x : DBHelper.getFavorites(sessions.get(data.getString("token")).getId())){
+					output.put(x.toJsonObject());
+				}
+				return "{success: true, faves: "+ output.toString()+"}";
+			}
+		}else{
+			return "{success: false}";
+		}
+		
 	}
 	
 	@Path("/unfavorite")
@@ -200,7 +252,27 @@ public class Driver {
 		if(!data.has("id")){
 			return "{success: false, fail-reason: 'no id'}";
 		}
-		return "{success: true, faves:[{id: 1, long: 123.2,lat: 132.34, name: 'my house'},{id: 2, long: 123.3, lat:132.65, name: 'cute girls house'}]}";
+		if(!sessions.containsKey(data.getString("token"))){
+			return "{success: false}";
+		}
+		if(!DBHelper.deleteFavorite(data.getInt("id"),sessions.get(data.getString("token")).getId())){
+			return "{success: false}";
+		}
+		JSONArray output = new JSONArray();
+		for(Favorite x : DBHelper.getFavorites(sessions.get(data.getString("token")).getId())){
+			output.put(x.toJsonObject());
+		}
+		return "{success: true, faves: "+ output.toString()+"}";
+	}
+	
+	private static final String alphaNum = "ABCDEFGHIJLKMNOPQRTSUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
+	
+	private String generateToken(){
+		StringBuilder token = new StringBuilder();
+		for(int i=0;i<20;i++){
+			token.append(alphaNum.charAt(generator.nextInt(alphaNum.length())));
+		}
+		return token.toString();
 	}
 	
 	
