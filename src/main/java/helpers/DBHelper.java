@@ -49,7 +49,7 @@ public class DBHelper {
 			stmt.setString(5, lyftToken);
 			stmt.setString(6, flywheelPass);
 			stmt.setString(7, sidecarPass);
-			stmt.execute();
+			stmt.executeUpdate();
 			return true;
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -64,7 +64,7 @@ public class DBHelper {
 			stmt.setDouble(2, latitude);
 			stmt.setDouble(3, longitude);
 			stmt.setString(4, name);
-			stmt.execute();
+			stmt.executeUpdate();
 			return true;
 		}catch(SQLException e){
 			e.printStackTrace();
@@ -76,7 +76,8 @@ public class DBHelper {
 		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(DELETE_FAVORITE);
 			stmt.setInt(1, faveId);
-			stmt.execute();
+			stmt.setInt(2, userId);
+			stmt.executeUpdate();
 			return true;
 		}catch(SQLException e){
 			e.printStackTrace();
