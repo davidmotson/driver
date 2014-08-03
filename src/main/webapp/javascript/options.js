@@ -81,4 +81,10 @@ function addDOMOption(option){
 $(document).ready(function(){
   test = newOption(5, 4, 3, "Lyft", "Car")
   addDOMOption(test);
+	$("#opt_btn_f").click(function(){
+		sortByPrice();
+	});
+	$("#opt_btn_s").click(function(){
+		sortByTime();
+	});
 })
