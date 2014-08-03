@@ -15,7 +15,7 @@ var newOption = function(price, time, id, type, subtype) {
 function initializeOptions(){
     token = document.cookie;
     $.ajax({ 
-      url: ' /api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
+      url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
             '&long-start='+lon+'&long-end='+destLong,
       type: 'GET'
     }).done(function(data){
