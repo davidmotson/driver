@@ -3,7 +3,6 @@ var password = "password1";
 var token;
 var cars;
 var summoned;
-simply.vibe();
 simply.fullscreen(true);
 simply.text({
 	title: "Driver",
@@ -12,16 +11,13 @@ simply.text({
 });
 
 ajax({
-	method: "post",
 	url: "http://107.150.8.38:8080/driver/api/login",
 	type: "json",
 	data: {username: username, password: password},
 	async: true
 }, function(result){
-	simply.body("this should be success",true);
 	simply.vibe();
 },function(result){
-	simply.body("this should be failure",true);
 	simply.vibe();
 });
 
