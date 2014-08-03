@@ -23,7 +23,7 @@ ajax({
 	}else{
 		token = result.token;
 		favorites = result.favorites;
-		if(favorites.length() == 0){
+		if(favorites.length == 0){
 			simply.body("You have no Favorite places to go");
 			return;
 		}
@@ -45,7 +45,7 @@ var faveMover = function(e){
 		favePointer--;
 		simply.body(favorites[favePointer].name);
 	}else if(e === "down"){
-		if(favePointer == favorites.length()-1){
+		if(favePointer == favorites.length-1){
 			return;
 		}
 		favePointer++;
