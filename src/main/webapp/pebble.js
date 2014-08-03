@@ -18,7 +18,7 @@ ajax({
 	data: {username: username, password: password},
 	async: true
 }, function(result){
-	simply.body("this should be success");
+	simply.body("this should be success",true);
 },function(result){
-	simply.body("this should be failure");
+	simply.body("this should be failure",true);
 });
