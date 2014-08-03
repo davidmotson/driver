@@ -7,6 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.annotation.Resource;
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.sql.DataSource;
 
 public class DBHelper {
@@ -16,14 +19,28 @@ public class DBHelper {
 	private static final String DELETE_FAVORITE = "DELETE FROM favorites where id = ? AND user_id = ?";
 	private static final String GET_USER = "SELECT id,phonenumber,ubertoken,lyfttoken,flywheelpass,sidecarpass FROM users WHERE email = ? AND password = ?";
 	private static final String GET_FAVORITES = "SELECT id,lat,long,name FROM favorites WHERE user_id = ?";
-	
-	
-	@Resource(name = "jdbc/driver")
+
+
+	//@Resource(name = "jdbc/driver")
 	private static DataSource database;
+
+	private static synchronized DataSource getDatabase(){
+		if(database == null){
+			Context initContext;
+			try {
+				initContext = new InitialContext();
+				Context envContext = (Context) initContext.lookup("java:comp/env");
+				database = (DataSource) envContext.lookup("jdbc/driver");
+			} catch (NamingException e) {
+				e.printStackTrace();
+			}
+		}
+		return database;
+	}
 
 	public static boolean createUser(String email,String password, String phoneNumber,
 			String uberToken, String lyftToken, String sidecarPass, String flywheelPass){
-		try(Connection con = database.getConnection()){
+		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(CREATE_USER);
 			stmt.setString(1, email);
 			stmt.setString(2, password);
@@ -39,9 +56,9 @@ public class DBHelper {
 			return false;
 		}
 	}
-	
+
 	public static boolean createFavorite(int userId, double latitude, double longitude, String name){
-		try(Connection con = database.getConnection()){
+		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(CREATE_FAVORITE);
 			stmt.setInt(1, userId);
 			stmt.setDouble(2, latitude);
@@ -54,9 +71,9 @@ public class DBHelper {
 			return false;
 		}
 	}
-	
+
 	public static boolean deleteFavorite(int faveId, int userId){
-		try(Connection con = database.getConnection()){
+		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(DELETE_FAVORITE);
 			stmt.setInt(1, faveId);
 			stmt.execute();
@@ -66,9 +83,9 @@ public class DBHelper {
 			return false;
 		}
 	}
-	
+
 	public static User getUser(String email, String password){
-		try(Connection con = database.getConnection()){
+		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(GET_USER);
 			stmt.setString(1, email);
 			stmt.setString(2, password);
@@ -82,9 +99,9 @@ public class DBHelper {
 			return null;
 		}
 	}
-	
+
 	public static Favorite[] getFavorites(int userId){
-		try(Connection con = database.getConnection()){
+		try(Connection con = getDatabase().getConnection()){
 			PreparedStatement stmt = con.prepareStatement(GET_FAVORITES);
 			stmt.setInt(1, userId);
 			ResultSet rs = stmt.executeQuery();
@@ -97,7 +114,7 @@ public class DBHelper {
 			e.printStackTrace();
 			return null;
 		}
-		
+
 	}
 
 
