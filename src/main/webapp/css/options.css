@@ -1,8 +1,19 @@
-.type , 
-.subtype {
+
+.type {
+/*  margin-left: 5px;
+*/  margin-right: 5px;
   font-weight: bold;
+} 
+
+.price-time {
+  margin-right: 5px;
 }
 
 .selected-option {
   font-weight: bold;
+}
+
+.right-side {
+  position:absolute;
+  right: 10;
 }
