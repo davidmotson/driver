@@ -18,7 +18,7 @@ public class DBHelper {
 	private static final String CREATE_FAVORITE = "INSERT INTO favorites (user_id,lat,long,name) VALUES (?,?,?,?)";
 	private static final String DELETE_FAVORITE = "DELETE FROM favorites where id = ? AND user_id = ?";
 	private static final String GET_USER = "SELECT id,phonenumber,ubertoken,lyfttoken,flywheelpass,sidecarpass FROM users WHERE email = ? AND password = ?";
-	private static final String GET_FAVORITES = "SELECT id,lat,long,name FROM favorites WHERE user_id = ?";
+	private static final String GET_FAVORITES = "SELECT `id`,`lat`,`long`,`name` FROM favorites WHERE user_id = ?";
 
 
 	//@Resource(name = "jdbc/driver")
