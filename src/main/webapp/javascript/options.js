@@ -22,7 +22,7 @@ function initializeCarOptions(){
     //   type: 'GET',
     //   success: function(data){
         console.log("here");
-        console.log(data);
+        //console.log(data);
         //cars = data.cars;
         //filler data because yay server crashes! 
         cars = [{type: "Uber", id: 1, subtype: "Classic", eta: "5", price: "10"},
