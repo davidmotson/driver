@@ -117,15 +117,15 @@ $(document).ready(function(){
 
   $(".car-col").click(function(){
     c = $(".car-col").children(".call-car").first();
+    c.show();
     c.attr('id', $(this).id)
   });
 
   $(".call-car").click(function(e){
-    e.preventDefault();
-    e.stopPropagation()
     $(".call-car").hide();
     var id = $(this).id;
     callCar(id);
+    return false;
   });
 
 })
