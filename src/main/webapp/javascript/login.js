@@ -145,7 +145,7 @@ $(document).ready(function(){
   }
 
   $("validate-sidecar-credentials").click(function(){ 
-    var username = $("#sidecar-email").val();
+    var username = $("#sidecar-phone").val();
     var password = $("#sidecar-password").val();
     $.ajax({
       url: '/api/credtest',
@@ -193,7 +193,7 @@ $(document).ready(function(){
   $("#driver-signup").click(function(){
     if (validateFlywheelCredentials()){
       $.ajax({
-        url: '/api/credtest',
+        url: '/api/create',
         type: 'POST',
         data: JSON.stringify({
           username: $("#driver-email").val(),
@@ -208,7 +208,7 @@ $(document).ready(function(){
             password: $("#lyft-code").val(),
           }, 
           sidecar: {
-            username: $("#sidecar-email").val(),
+            username: $("#sidecar-phone").val(),
             password: $("#sidecar-password").val(),
           },
           flywheel: {
