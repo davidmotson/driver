@@ -14,7 +14,6 @@ ajax({
 	method: 'post',
 	url: 'http://107.150.8.38:8080/driver/api/login',
 	data: "{username:" + username+", password:"+ password+"}",
-	async: true
 }, function(result){
 	simply.body(result)
 },function(result){
