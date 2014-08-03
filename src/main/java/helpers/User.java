@@ -14,6 +14,7 @@ public class User {
 	private String sidecarPassword;
 	private Favorite[] favorites;
 	public long timeout;
+	public String token;
 	public String flywheelToken;
 
 	public User(String email, String phoneNumber, String uberToken,
