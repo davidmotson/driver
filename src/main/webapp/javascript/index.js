@@ -18,4 +18,7 @@ $(document).ready(function(){
   } else {
     $("#splash-screen").show();
   }
+  if(window.location.hash != "splash-screen"){
+    $("header").show();
+  }
 });

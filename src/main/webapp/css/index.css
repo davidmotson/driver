@@ -19,11 +19,10 @@ body {
   display: none;
 }
 
-img.splash-logo{
-    width:75%; 
-    height: auto;
-    vertical-align: center;
-    margin-bottom: 5%;  
+header img.logo {
+  vertical-align: center;
+  text-align: center;
+  width:40%; 
 }
 
 #splash-screen {
@@ -32,6 +31,15 @@ img.splash-logo{
   width: 100%;
   vertical-align: center;
 }
+
+img.splash-logo{
+    width:75%; 
+    height: auto;
+    vertical-align: center;
+    margin-bottom: 5%;  
+}
+
+
 
 
 /*login*/
