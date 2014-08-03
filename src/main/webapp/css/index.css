@@ -6,8 +6,8 @@ header {
   background-color: #0970B9;
   color: white;
   font-style: helvetica;
-  padding-bottom: 10px;
-  padding-top: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
   display:none;
 }
 
@@ -22,7 +22,7 @@ body {
 header img.logo {
   vertical-align: center;
   text-align: center;
-  width:40%; 
+  height: 11.26%;
 }
 
 #splash-screen {
@@ -38,9 +38,6 @@ img.splash-logo{
     vertical-align: center;
     margin-bottom: 5%;  
 }
-
-
-
 
 /*login*/
 

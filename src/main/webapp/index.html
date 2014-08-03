@@ -7,9 +7,10 @@
     <script src="javascript/jquery-2.1.1.min.js"> </script>
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
     <script src="javascript/index.js"> </script>
+    <script src="javascript/login.js"> </script>
     <script src="javascript/maps.js"> </script>
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
   </head>
 
@@ -33,12 +34,10 @@
         Login to driver
       </div>
       <div class="login-credentials"> 
-        Email
-        <input type="email" class="form-control"> 
+        <input type="email" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        Password
-        <input type="password" class="form-control"> 
+        <input type="password" class="form-control" value="Password"> 
       </div>
       <button class="btn btn-primary left-button" onclick="goto('signup');return false;">
         Make Account
@@ -53,16 +52,13 @@
         Login to driver
       </div>
       <div class="login-credentials"> 
-        Email
-        <input type="email" class="form-control"> 
+        <input type="email" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        Password
-        <input type="password" class="form-control"> 
+        <input type="password" class="form-control" value="Password"> 
       </div>
       <div class="login-credentials"> 
-        Confirm Password
-        <input type="password" class="form-control"> 
+        <input type="password" class="form-control" value="Confirm Password"> 
       </div>
       <button class="btn btn-primary right-button" onclick="goto('map');return false;">
         Create Account
@@ -74,12 +70,10 @@
         Login to Uber
       </div>
       <div class="login-credentials"> 
-        Email
-        <input type="email" class="form-control"> 
+        <input type="email" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        Password
-        <input type="password" class="form-control"> 
+        <input type="password" class="form-control" value="Password">
       </div>
     </div>
 
@@ -88,15 +82,27 @@
         Login to Lyft
       </div>
       <div class="login-credentials"> 
-        Confirmation Code
+        Lyft just texed you a confirmaton code
         <input type="num" class="form-control"> 
       </div>
     </div>
 
     <div id="login-sidecar" class="page login">
+      <div class="login-credentials"> 
+        <input type="num" class="form-control" value="Email"> 
+      </div>
+      <div class="login-credentials"> 
+        <input type="password" class="form-control" value="Password">
+      </div>
     </div>
 
     <div id="login-flywheel" class="page login">
+      <div class="login-credentials"> 
+        <input type="email" class="form-control" value="Email"> 
+      </div>
+      <div class="login-credentials"> 
+        <input type="password" class="form-control" value="Password">
+      </div>
     </div>
 
     <div id="map" class="page">
