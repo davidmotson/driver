@@ -1,8 +1,14 @@
+var geocoder;
+var faves;
+var lat = 37.385696;
+var lon = -122.066327;
+var destLat;
+var destLong;
+var map;
 function initialize() {
-  var lat = 37.385696;
-  var lon = -122.066327;
   var markers = [];
-  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+	 geocoder = new google.maps.Geocoder();
+   map = new google.maps.Map(document.getElementById('map-canvas'), {
     mapTypeId: google.maps.MapTypeId.ROADMAP,
     disableDefaultUI: true,
     mapTypeControlOptions:{
@@ -12,6 +18,19 @@ function initialize() {
 
  $('<div/>').addClass('centerMarker').appendTo(map.getDiv())
 
+/*	marker = new google.maps.Marker({
+		position: map.getCenter(),
+		map: map
+	});
+	google.maps.event.addListener(map, 'drag',function(){
+		marker.setPosition(map.getCenter());
+	});*/
+	google.maps.event.addListener(map, 'dragend',function(){
+		destLat = map.getCenter().k;
+		destLong = map.getCenter().B;
+		geocoder.geocode({location: map.getCenter()}, function(result,status){
+		});
+	});
   var defaultBounds = new google.maps.LatLngBounds(
       //new google.maps.LatLng(-33.8902, 151.1759),
       //new google.maps.LatLng(-33.8474, 151.2631));
@@ -76,3 +95,8 @@ function initialize() {
     searchBox.setBounds(bounds);
   });
 }
+$(document).ready(function(){
+	$("#find_driver").click(function(){
+		goto("options")
+	});
+});
