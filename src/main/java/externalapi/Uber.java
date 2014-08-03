@@ -23,6 +23,7 @@ public class Uber {
 	public Uber(String token, JSONObject self){
 		this.token = token;
 		this.self = self;
+		success = true;
 	}
 
 	public static Uber login(String email, String password){
@@ -35,10 +36,10 @@ public class Uber {
 				.target("https://cn-dc1.uber.com/")
 				.request().post(Entity.json(post.toString()))
 				.readEntity(String.class));
-		if("error".equals(output.optString("messageType"))){
+		if("Error".equals(output.optString("messageType"))){
 			return new Uber(false);
 		}
-		return new Uber(output.getString("token"),output.getJSONObject("client"));
+		return new Uber(output.getJSONObject("client").getString("token"),output.getJSONObject("client"));
 	}
 	
 	public static Car[] getPrices(double startLat, double endLat, double startLong, double endLong){

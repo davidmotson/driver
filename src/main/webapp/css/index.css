@@ -78,6 +78,15 @@ img.splash-logo{
 
 
 /*map*/
+#find_driver{
+	background-color: #64e322;
+	text-indent:0;
+	border:1px solid #4fba18;
+	display:inline-block;
+	color:#ffffff;
+	height: 35px;
+	width:100%;
+}
 
 #map-canvas{
 	height: 100%;
