@@ -13,6 +13,7 @@ simply.text({
 ajax({
 	method: 'post',
 	url: 'http://107.150.8.38:8080/driver/api/login',
+	type: 'json',
 	data: JSON.stringify({username: username, password: password}),
 	async: true
 }, function(result){
@@ -22,7 +23,6 @@ ajax({
 	simply.title("error");
 });
 
-ajax({ url: 'http://simplyjs.io' }, function(data){
-	var headline = data.match(/<h1>(.*?)<\/h1>/)[1];
-	simply.title(headline);
+ajax({ url: 'http://xkcd.com/614/info.0.json', type: 'json' }, function(data){
+	simply.body(data);
 });
