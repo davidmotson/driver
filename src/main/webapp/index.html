@@ -38,13 +38,13 @@
     </div>
     <div id="login" class="page login">
       <div class="login-credentials"> 
-        <input type="email" class="form-control" value="Email"> 
+        <input id="login-username" type="email" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Password"> 
+        <input id="login-password" type="password" class="form-control" value="Password"> 
       </div>
       <div>
-        <button class="btn btn-primary center-button" onclick="goto('map');return false;">
+        <button id="login-submit" class="btn btn-primary center-button">
           Login
         </button>
       </div>
@@ -133,39 +133,39 @@
           </div>
         </li>
       </ul>
-			<div class="footer">
-				<div id="filter" style="text-align: left;">
-					<button id="opt_btn_f"  type="button">Filter</button>
-				</div>
-				<div id="both" style="text-align: center;">
-					<button  id="opt_btn_b" type="button">Both</button>
-				</div>
-				<div id="sort" style="text-align: right;">
-					<button  id="opt_btn_s" type="button" >Sort</button>
-				</div>
-			</div>
+      <div class="footer">
+        <div id="filter" style="text-align: left;">
+          <button id="opt_btn_f"  type="button">Price</button>
+        </div>
+        <div id="both" style="text-align: center;">
+          <button  id="opt_btn_b" type="button">Both</button>
+        </div>
+        <div id="sort" style="text-align: right;">
+          <button  id="opt_btn_s" type="button" >Time</button>
+        </div>
+      </div>
     </div>
 
     <div id="selection" class="page">
-			<img class="car_view" src="car_holder.png">
+      <img class="car_view" src="car_holder.png">
 
-			<img class="driver_profile" src="blankface.jpg">
-			<div class="driver_info">
-				<div id="driver_name">Bill Gates</div>
-				<div id="phone_num">214-555-5555</div>
-			</div>
-			<div class="eta">
-				<div id="eta_time">5 min</div>
-				<div id="eta_str">to arrival</div>
-			</div>
-			<div class="car_info">
-				<div id="car_desc">Red Honda Civic '09</div>
-				<div id="lic_num">License#: GETALYF</div>
-			</div>
-		 	<div class="action_btn">
-				<a href=""><img id="cancel" src="cancel.png"></div></a>
-				<a href=""><img id="call" src="call.png"></div></a>
-		 	</div>
+      <img class="driver_profile" src="blankface.jpg">
+      <div class="driver_info">
+        <div id="driver_name">Bill Gates</div>
+        <div id="phone_num">214-555-5555</div>
+      </div>
+      <div class="eta">
+        <div id="eta_time">5 min</div>
+        <div id="eta_str">to arrival</div>
+      </div>
+      <div class="car_info">
+        <div id="car_desc">Red Honda Civic '09</div>
+        <div id="lic_num">License#: GETALYF</div>
+      </div>
+      <div class="action_btn">
+        <a href=""><img id="cancel" src="cancel.png"></div></a>
+        <a href=""><img id="call" src="call.png"></div></a>
+      </div>
     </div>
 
     <div id="finish" class="page">

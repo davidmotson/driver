@@ -43,6 +43,30 @@ $(document).ready(function(){
 
   var error = $("#error-msg");
 
+  $("#login-submit").click(function(){
+    username = $("#login-username").val();
+    password = $("#login-password").val();
+    $.ajax({
+      url: '/api/login', 
+      type: 'POST',
+      data: JSON.stringify({ 
+        username: username,
+        password: password,
+      }),
+      dataType: 'json',
+    }).done(function(data){
+      if(data["success"]){
+        faves = data["fave-locs"];
+        token = data["token"];
+        document.cookie="token="+token; 
+        goto('map');
+      } else {
+        error.text(data["fail-reason"]);
+        error.show();
+      }
+    })
+  })
+
   $("#validate-driver-credentials").click(function(){
     error.text("");
     var email = $("#driver-email").val();
@@ -63,7 +87,7 @@ $(document).ready(function(){
     var username = $("#uber-email").val();
     var password = $("#uber-password").val();
     $.ajax({
-      url: '/api/create',
+      url: '/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -85,7 +109,7 @@ $(document).ready(function(){
     var username = $("#lyft-email").val();
     var password = $("#lyft-password").val();
     $.ajax({
-      url: '/api/create',
+      url: '/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -116,7 +140,7 @@ $(document).ready(function(){
     var username = $("#sidecar-email").val();
     var password = $("#sidecar-password").val();
     $.ajax({
-      url: '/api/create',
+      url: '/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -139,7 +163,7 @@ $(document).ready(function(){
     var username = $("#flywheel-email").val();
     var password = $("#flywheel-password").val();
     $.ajax({
-      url: '/api/create',
+      url: '/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -161,7 +185,7 @@ $(document).ready(function(){
   $("#driver-signup").click(function(){
     if (validateFlywheelCredentials()){
       $.ajax({
-        url: '/api/create',
+        url: '/api/credtest',
         type: 'POST',
         data: JSON.stringify({
           username: $("#driver-email").val(),

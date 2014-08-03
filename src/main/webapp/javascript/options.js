@@ -13,12 +13,20 @@ var newOption = function(price, time, id, type, subtype) {
   return d;
 }
 
+// var initializeOptions(){
+//     $.ajax({ 
+//       url
+//     });
+// }
+
 function sortPriceHelper(op1, op2){
   return (op1["price"] - op2["price"]);
 }
 
 function sortByPrice(){
-  $("#options-table").empty();
+  $("#options-table").each(function(i, e){
+    if(e.attr(id) != "tempListItem") e.remove();
+  });
   sorted = filteredOptions.sort(sortPriceHelper);
   l = sorted.length;
   for (i = 0; i<l; i++){
@@ -31,7 +39,9 @@ function sortTimeHelper(op1, op2){
 }
 
 function sortByTime(){
-  $("#options-table").empty();
+  $("#options-table").each(function(i, e){
+    if(e.attr(id) != "tempListItem") e.remove();
+  });
   sorted = filteredOptions.sort(sortTimeHelper);
   l = sorted.length;
   for (i = 0; i < l; i++){
