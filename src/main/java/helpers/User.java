@@ -4,7 +4,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class User {
-	
+
 	private int id;
 	private String email;
 	private String phoneNumber;
@@ -36,7 +36,7 @@ public class User {
 	public int getId(){
 		return id;
 	}
-	
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
@@ -56,23 +56,25 @@ public class User {
 	public String getSidecarPassword() {
 		return sidecarPassword;
 	}
-	
+
 	public Favorite[] getFavorites(){
 		return favorites;
 	}
-	
+
 	public JSONObject toJsonObject(){
 		JSONObject output = new JSONObject();
 		output.put("email", email);
 		output.put("phone-number", phoneNumber);
 		JSONArray favorites = new JSONArray();
-		for(Favorite x : this.favorites){
-			favorites.put(x.toJsonObject());
+		if(favorites != null){
+			for(Favorite x : this.favorites){
+				favorites.put(x.toJsonObject());
+			}
 		}
 		output.put("favorites",favorites);
 		return output;
 	}
-	
-	
-	
+
+
+
 }
