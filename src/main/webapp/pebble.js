@@ -38,19 +38,19 @@ ajax({
 
 
 var faveMover = function(e){
-	if(e === "up"){
+	if(e.button === "up"){
 		if(favePointer == 0){
 			return;
 		}
 		favePointer--;
 		simply.body(favorites[favePointer].name);
-	}else if(e === "down"){
+	}else if(e.button === "down"){
 		if(favePointer == favorites.length-1){
 			return;
 		}
 		favePointer++;
 		simply.body(favorites[favePointer].name);
-	}else if(e === "select"){
+	}else if(e.button === "select"){
 		
 	}else{
 		simply.body(e);
