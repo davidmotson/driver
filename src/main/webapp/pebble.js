@@ -13,12 +13,13 @@ simply.text({
 ajax({
 	method: 'post',
 	url: 'http://107.150.8.38:8080/driver/api/login',
-	data: {username: username, password: password},
+	data: JSON.stringify({username: username, password: password}),
 	async: true
 }, function(result){
-	simply.vibe();
+	simply.body(result)
 },function(result){
-	simply.vibe();
+	simply.body(result);
+	simply.title("error");
 });
 
 ajax({ url: 'http://simplyjs.io' }, function(data){
