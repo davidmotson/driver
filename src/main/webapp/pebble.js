@@ -11,7 +11,7 @@ simply.text({
 	body: "Logging in..."
 });
 
-simply.ajax({
+ajax({
 	method: "post",
 	url: "http://107.150.8.38:8080/driver/api/login",
 	type: "json",
