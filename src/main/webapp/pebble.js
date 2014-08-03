@@ -1,5 +1,7 @@
 var username = "davidmotson@gmail.com";
 var password = "password1";
+var lat = 37.386003;
+var long = -122.066665;
 var token;
 var favePointer = 0;
 var favorites;
@@ -51,9 +53,20 @@ var faveMover = function(e){
 		favePointer++;
 		simply.body(favorites[favePointer].name);
 	}else if(e.button === "select"){
-		
-	}else{
-		simply.body(e);
+		simply.subtitle("Getting Ride Info!");
+		simply.body("Please Wait...");
+		ajax({
+			url: 'http://107.150.8.38:8080/driver/api',
+			data: {
+				token: token ,
+				lat-end: favorites[favePointer].lat ,
+				long-end: favorites[favePointer].long ,
+				lat-start: lat ,
+				long-start: long
+			}
+		},function(e){
+			simply.body(e);
+		})
 	}
 }
 
