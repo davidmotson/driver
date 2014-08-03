@@ -8,6 +8,7 @@ header {
   font-style: helvetica;
   padding-bottom: 10px;
   padding-top: 10px;
+  display:none;
 }
 
 body {
@@ -18,9 +19,17 @@ body {
   display: none;
 }
 
-.splash-logo.resize{
-    width:540px; /* you can use % */
+img.splash-logo{
+    width:75%; 
     height: auto;
+    vertical-align: center;
+    margin-bottom: 5%;  
+}
+
+#splash-screen {
+  background-color: #0970B9;
+  height: 100%;
+  width: 100%;
 }
 
 
