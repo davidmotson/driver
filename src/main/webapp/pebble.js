@@ -3,7 +3,7 @@ var password = "password1";
 var token;
 var cars;
 var summoned;
-
+simply.vibe();
 simply.fullscreen(true);
 simply.text({
 	title: "Driver",
@@ -19,6 +19,8 @@ ajax({
 	async: true
 }, function(result){
 	simply.body("this should be success",true);
+	simply.vibe();
 },function(result){
 	simply.body("this should be failure",true);
+	simply.vibe();
 });
