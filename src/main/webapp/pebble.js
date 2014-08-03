@@ -38,6 +38,7 @@ ajax({
 
 
 var faveMover = function(e){
+	ajax({url: "" + facePointer + e},function(){});
 	if(e === "up"){
 		if(favePointer == 0){
 			return false;
