@@ -147,8 +147,11 @@ public class Driver {
 						  @QueryParam("lat-start") double latStart,
 						  @QueryParam("lat-end") double latEnd){
 		
+		JSONObject output1 = new JSONObject();
+		output1.put("test", token);
 		if(!sessions.containsKey(token)){
-			return "{success: false}";
+			output1.put("success", false);
+			return output1.toString();
 		}
 		User user = sessions.get(token);
 		JSONObject output = new JSONObject();
