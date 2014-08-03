@@ -16,8 +16,10 @@ function goto(page_id) {
   $("#error-msg").hide();
   if(PageNames[page_id]){
     $("#page-header").text(PageNames[page_id]);
+    $("#page-header").show();
   } else {
     $("#page-header").text("");
+    $("#page-header").hide();
   }
   $("#header-logo").show();
   if(page_id == "map"){
@@ -33,19 +35,20 @@ $(document).ready(function(){
     
   if($(window.location.hash).length > 0){
     $(window.location.hash).show();
-      if(PageNames[window.location.hash]){
-        $("#page-header").text(PageNames[window.location.hash]);
-      } else {
-        $("#page-header").text("");
-      }
-      $("#header-logo").show();
-      if(window.location.hash == "map"){
-        initialize();
-      }
+    if(PageNames[window.location.hash]){
+      $("#page-header").text(PageNames[window.location.hash]);
+    } else {
+      $("#page-header").text("");
+      $("#page-header").hide();
+    }
+    $("#header-logo").show();
+    $("header").show();
+    $("#error-msg").text("");
+    $("#error-msg").hide();
+    if(window.location.hash == "#map"){
+      initialize();
+    }
   } else {
     $("#splash-screen").show();
-  }
-  if(window.location.hash != "splash-screen"){
-    $("header").show();
   }
 });
