@@ -56,7 +56,7 @@ var faveMover = function(e){
 		simply.subtitle("Getting Ride Info!");
 		simply.body("Please Wait...");
 		ajax({
-			url: 'http://107.150.8.38:8080/driver/api/getinfo?token='+token+'&lat-start='+lat+'&long-start='+long+'&lat-end='+favorites[favePointer].lat+'&long-end='+favorites[favePointer].long,
+			url: 'http://107.150.8.38:8080/driver/api/info?token='+token+'&lat-start='+lat+'&long-start='+long+'&lat-end='+favorites[favePointer].lat+'&long-end='+favorites[favePointer].long,
 		},function(e){
 			simply.body(e);
 		})
