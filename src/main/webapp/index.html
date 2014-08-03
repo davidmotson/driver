@@ -4,13 +4,13 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
-    <script src="javascript/jquery-2.1.1.min.js"> </script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
-    <script src="javascript/index.js"> </script>
-    <script src="javascript/login.js"> </script>
-    <script src="javascript/maps.js"> </script>
+    <script type="text/javascript" src="javascript/jquery-2.1.1.min.js"> </script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
+    <script type="text/javascript" src="javascript/maps.js"> </script>
+    <script type="text/javascript" src="javascript/index.js"> </script>
+    <script type="text/javascript" src="javascript/login.js"> </script>
 
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   </head>
 
@@ -29,87 +29,94 @@
     <img src="logo@2x.png" class="logo">
   </header>
   <body>
+    <div id="page-header">
+    </div>
+    <div id="error-msg"> 
+    </div>
     <div id="login" class="page login">
-      <div class="page-header">
-        Login to driver
-      </div>
       <div class="login-credentials"> 
         <input type="email" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
         <input type="password" class="form-control" value="Password"> 
       </div>
-      <button class="btn btn-primary left-button" onclick="goto('signup');return false;">
-        Make Account
-      </button>
-      <button class="btn btn-primary right-button" onclick="goto('map');return false;">
-        Login
-      </button>
+      <div>
+        <button class="btn btn-primary center-button" onclick="goto('map');return false;">
+          Login
+        </button>
+      </div>
+      <div style="position:relative; margin-top:20px; text-align:center;">
+        <button class="btn btn-primary center-button" onclick="goto('signup');return false;">
+          Make Account
+        </button>
+      </div>
     </div>
 
     <div id="signup" class="page login">
-      <div class="page-header">
-        Login to driver
+      <div class="login-credentials"> 
+        <input id="driver-email" type="text" class="form-control" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        <input type="email" class="form-control" value="Email"> 
+        <input id="driver-password" type="password" class="form-control" value="Password"> 
       </div>
-      <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Password"> 
-      </div>
-      <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Confirm Password"> 
-      </div>
-      <button class="btn btn-primary right-button" onclick="goto('map');return false;">
-        Create Account
+      <button id="validate-driver-credentials" class="btn btn-primary center-button">
+        Create
       </button>
     </div>
 
     <div id="login-uber" class="page login">
-      <div class="page-header">
+      <div class="login-credentials"> 
+        <input id="uber-email" type="text" class="form-control email" value="Email"> 
+      </div>
+      <div class="login-credentials"> 
+        <input id="uber-password" type="password" class="form-control" value="Password">
+      </div>
+      <button id="validate-uber-credentials" class="btn btn-primary center-button">
         Login to Uber
-      </div>
-      <div class="login-credentials"> 
-        <input type="email" class="form-control" value="Email"> 
-      </div>
-      <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Password">
-      </div>
+      </button>
     </div>
 
     <div id="login-lyft" class="page login">
-      <div class="page-header">
-        Login to Lyft
-      </div>
       <div class="login-credentials"> 
         Lyft just texed you a confirmaton code
-        <input type="num" class="form-control"> 
+        <input id="lyft-phone" type="tel" class="form-control"> 
+        <button id="send-lyft-code" onclick="sendLyftCode();"></button>
       </div>
+      <div class="login-credentials">
+          <input id="lyft-phone" type="tel" class="form-control"> 
+      </div>
+      <button id="validate-lyft-credentials" class="btn btn-primary center-button">
+        Login to Lyft 
+      </button>
     </div>
 
     <div id="login-sidecar" class="page login">
       <div class="login-credentials"> 
-        <input type="num" class="form-control" value="Email"> 
+        <input id="sidecar-email" type="text" class="form-control email" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Password">
+        <input id="sidecar-password" type="password" class="form-control" value="Password">
       </div>
+      <button id="validate-sidecar-credentials" class="btn btn-primary center-button">
+        Login to Sidecar
+      </button>
     </div>
 
     <div id="login-flywheel" class="page login">
       <div class="login-credentials"> 
-        <input type="email" class="form-control" value="Email"> 
+        <input id="flywheel-email" type="text" class="form-control email" value="Email"> 
       </div>
       <div class="login-credentials"> 
-        <input type="password" class="form-control" value="Password">
+        <input id="flywheel-password" type="password" class="form-control" value="Password">
       </div>
+      <button id="driver-signup" class="btn btn-primary center-button">
+        Login to FlyWheel and Finish
+      </button>
     </div>
 
     <div id="map" class="page">
-      <div id="maps-container">
-        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
-        <div id="map-canvas"></div>
-      </div>
+      <input id="pac-input" class="controls" type="text" placeholder="Search Box" style="visibility:hidden;">
+      <div id="map-canvas"></div>
     </div>
 
     <div id="options" class="page">

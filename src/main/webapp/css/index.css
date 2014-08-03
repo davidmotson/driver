@@ -39,6 +39,16 @@ img.splash-logo{
     margin-bottom: 5%;  
 }
 
+#page-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#error-msg {
+  font-weight: bold;
+  color: red;
+}
+
 /*login*/
 
 .login-credentials {
@@ -62,6 +72,15 @@ img.splash-logo{
   margin-right: 10;
   margin-left: 10;
 }
+
+.center-button {
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
 
 /*map*/
 
