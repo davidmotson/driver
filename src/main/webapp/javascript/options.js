@@ -16,18 +16,18 @@ var newOption = function(price, time, id, type, subtype) {
 function initializeCarOptions(){
     token = document.cookie;
     console.log("here");  
-    $.ajax({ 
-      url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
-            '&long-start='+lon+'&long-end='+destLong,
-      type: 'GET',
-      success: function(data){
+    // $.ajax({ 
+    //   url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
+    //         '&long-start='+lon+'&long-end='+destLong,
+    //   type: 'GET',
+    //   success: function(data){
         console.log("here");
         console.log(data);
         //cars = data.cars;
         //filler data because yay server crashes! 
-        cars = [{type: "Uber", subtype: "Classic", eta: "5", price: "10"},
-                {type: "Lyft", eta: "7", price: "12"},
-                {type: "Sidecar", eta: "Tan Mitsubishi Outlander", price: "13"}]
+        cars = [{type: "Uber", id: 1, subtype: "Classic", eta: "5", price: "10"},
+                {type: "Lyft", id: 2, subtype: "", eta: "7", price: "12"},
+                {type: "Sidecar", id: 3, subtype: "", eta: "Tan Mitsubishi Outlander", price: "13"}]
         var l = cars.length;
         for(i = 0; i < l; i++){
           console.log(car);
@@ -37,9 +37,9 @@ function initializeCarOptions(){
           cardict[car.id] = option; 
         }
         sortByPrice();
-      }
-    })
-}
+      //}
+    }//)
+//}
 
 function sortPriceHelper(op1, op2){
   return (op1["price"] - op2["price"]);
@@ -49,6 +49,7 @@ function sortByPrice(){
   $("#options-table").each(function(i, e){
     if(e.attr(id) != "tempListItem") e.remove();
   });
+  filteredOption = [];
   filteredOptions.sort(sortPriceHelper);
   sorted = filteredOptions;
   l = sorted.length;
