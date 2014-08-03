@@ -15,6 +15,7 @@ var newOption = function(price, time, id, type, subtype) {
 
 function initializeCarOptions(){
     token = document.cookie;
+    console.log("here");  
     $.ajax({ 
       url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
             '&long-start='+lon+'&long-end='+destLong,

@@ -32,7 +32,9 @@ function goto(page_id) {
     $("#page-header").hide();
   }
   $("#header-logo").show();
+  console.log(page_id);
   if(page_id == "options"){
+    debugger;
     initializeCarOptions();
   }
   if(page_id == "map"){
