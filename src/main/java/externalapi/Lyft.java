@@ -10,13 +10,15 @@ public class Lyft {
 	
 	public boolean success;
 	public JSONObject self;
+	public String token;
 	
 	public Lyft(boolean b){
 		success = b;
 	}
 	
-	public Lyft(JSONObject self){
+	public Lyft(JSONObject self, String token){
 		this.self = self;
+		this.token = token;
 		success = true;
 	}
 	
@@ -35,7 +37,7 @@ public class Lyft {
 	public static Lyft login(String phoneNumber, int code){
 		JSONObject post = new JSONObject();
 		JSONObject phone = new JSONObject();
-		phone.put("number", phoneNumber);
+		phone.put("number", "+1" + phoneNumber);
 		phone.put("verificationCode", code);
 		post.put("phone", phone);
 		
@@ -47,7 +49,7 @@ public class Lyft {
 		if(output.has("errors")){
 			return new Lyft(false);
 		}else{
-			return new Lyft(output.getJSONObject("user"));
+			return new Lyft(output.getJSONObject("user"),output.getJSONObject("user").getString("lyftToken"));
 		}
 	}
 
