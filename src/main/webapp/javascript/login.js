@@ -32,7 +32,7 @@ $(document).ready(function(){
     return re.test(email);
   } 
   function invalidPassword(password){
-    if (password.length < 6) {
+    if (password.length < 6 || password == "Password") {
       return "Password must be 6 or more charecters!"
     } else {
       return false;
@@ -42,28 +42,25 @@ $(document).ready(function(){
 
   var error = $("#error-msg");
 
-  $("validate-driver-credentials").click(function(){
-    var email = $("#driver-email").text()
-    var password = $("#driver-password").text();
-    var passwordConfirm = $("#driver-password-confirm").text();
-    var phone = $("#driver-phone");
+  $("#validate-driver-credentials").click(function(){
+    error.text("");
+    var email = $("#driver-email").val();
+    var password = $("#driver-password").val();
     if (!validateEmail(email)){
       error.text("Invalid Email!");
-      error.show();
-    } else if (passwordConfirm != passwordConfirm) {
-      error.text("Passwords don't match!");
       error.show();
     } else if (invalidPassword(password)){
       error.text(invalidPassword(password));
       error.show();
     } else {
+      $("input[type=email]").val($("#driver-email").text());
       goto('login-uber');
     }
   });
 
-  $("validate-uber-credentials").click(function(){ 
-    var username = $("#uber-email").text()
-    var password = $("#uber-password").text();
+  $("#validate-uber-credentials").click(function(){ 
+    var username = $("#uber-email").val();
+    var password = $("#uber-password").val();
     $.ajax({
       url: '/api/create',
       type: 'POST',
@@ -73,18 +70,19 @@ $(document).ready(function(){
         serivice: 'uber',
       }),
       dataType: 'json',
-  }).done(function(data){
-    if (data["success"]){
-      goto("login-lyft");
-    } else {
-      error.text("There was an error with your Username/Password");
-      error.show();
-    }
+    }).done(function(data){
+      if (data["success"]){
+        goto("login-lyft");
+      } else {
+        error.text("There was an error with your Username/Password");
+        error.show();
+      }
+    });
   });
 
   $("validate-lyft-credentials").click(function(){ 
-    var username = $("#lyft-email").text()
-    var password = $("#lyft-password").text();
+    var username = $("#lyft-email").val();
+    var password = $("#lyft-password").val();
     $.ajax({
       url: '/api/create',
       type: 'POST',
@@ -94,13 +92,14 @@ $(document).ready(function(){
         serivice: 'lyft',
       }),
       dataType: 'json',
-  }).done(function(data){
-    if (data["success"]){
-      goto("login-lyft");
-    } else {
-      error.text("There was an error with your Username/Password");
-      error.show();
-    }
+    }).done(function(data){
+      if (data["success"]){
+        goto("login-sidecar");
+      } else {
+        error.text("There was an error with your Username/Password");
+        error.show();
+      }
+    });
   });
 
 
@@ -112,43 +111,91 @@ $(document).ready(function(){
     //Lyft send code? 
   }
 
-  $("driver-signup").click(function(){
+  $("validate-sidecar-credentials").click(function(){ 
+    var username = $("#sidecar-email").val();
+    var password = $("#sidecar-password").val();
     $.ajax({
       url: '/api/create',
       type: 'POST',
-      data: JSON.stringify({
-        username: $("#driver-email").text(),
-        password: $("#driver-password").text(),
-        phone: $("#driver-phone"),
-        uber: {
-          username: $("#uber-email").text(),
-          password: $("#uber-password").text(),
-        },
-        lyft: {
-          username: $("#lyft-email").text(),
-          password: $("#lyft-password").text(),
-        }, 
-        sidecar: {
-          username: $("#sidecar-email").text(),
-          password: $("#sidecar-password").text(),
-        },
-        flywheel: {
-          username: $("#flywheel-email").text(),
-          password: $("#flywheel-password").text(),
-        },
+      data: JSON.stringify({ 
+        username: username,
+        password: password,
+        serivice: 'sidecar',
       }),
       dataType: 'json',
-      success: function(data) {
-        if(!data["success"]){
-          error.text(data["fail-reason"]);
-          error.show();
-          return; 
-        }
-        faves = data["fave-locs"];
-        token = data["token"];
-        document.cookie="token="+token; 
+    }).done(function(data){
+      if (data["success"]){
+        goto("map");
+      } else {
+        error.text("There was an error with your Username/Password");
+        error.show();
       }
-    })
+    });
+  });
+
+
+  var validateFlywheelCredentials = function(){ 
+    var username = $("#flywheel-email").val();
+    var password = $("#flywheel-password").val();
+    $.ajax({
+      url: '/api/create',
+      type: 'POST',
+      data: JSON.stringify({ 
+        username: username,
+        password: password,
+        serivice: 'lyft',
+      }),
+      dataType: 'json',
+    }).done(function(data){
+      if (data["success"]){
+        return true;
+      } else {
+        error.text("There was an error with your Username/Password");
+        error.show();
+        return false;
+      }
+    });
+  }
+
+  $("#driver-signup").click(function(){
+    if (validateFlywheelCredentials()){
+      $.ajax({
+        url: '/api/create',
+        type: 'POST',
+        data: JSON.stringify({
+          username: $("#driver-email").val(),
+          password: $("#driver-password").val(),
+          phone: $("#driver-phone"),
+          uber: {
+            username: $("#uber-email").val(),
+            password: $("#uber-password").val(),
+          },
+          lyft: {
+            username: $("#lyft-email").val(),
+            password: $("#lyft-password").val(),
+          }, 
+          sidecar: {
+            username: $("#sidecar-email").val(),
+            password: $("#sidecar-password").val(),
+          },
+          flywheel: {
+            username: $("#flywheel-email").val(),
+            password: $("#flywheel-password").val(),
+          },
+        }),
+        dataType: 'json',
+        success: function(data) {
+          if(!data["success"]){
+            error.text(data["fail-reason"]);
+            error.show();
+            return; 
+          }
+          faves = data["fave-locs"];
+          token = data["token"];
+          document.cookie="token="+token; 
+        }
+      })
+    }
   });
 
 });

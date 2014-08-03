@@ -39,6 +39,16 @@ img.splash-logo{
     margin-bottom: 5%;  
 }
 
+#page-header {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#error-msg {
+  font-weight: bold;
+  color: red;
+}
+
 /*login*/
 
 .login-credentials {
