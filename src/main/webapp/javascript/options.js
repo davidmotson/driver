@@ -116,9 +116,9 @@ $(document).ready(function(){
   });
 
   $(".car-col").click(function(){
-    c = $(".car-col").children(".call-car").first();
+    c = $(".car-col").children(".call-car #"+$(this).id).first();
     c.show();
-    c.attr('id', $(this).id)
+    c.attr('id', $(this).id);
   });
 
   $(".call-car").click(function(e){
