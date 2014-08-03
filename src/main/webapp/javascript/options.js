@@ -19,6 +19,8 @@ function initializeOptions(){
             '&long-start='+lon+'&long-end='+destLong,
       type: 'GET'
     }).done(function(data){
+      console.log("here");
+      console.log(data);
       cars = data["cars"];
       var l = cars.length;
       for(i = 0; i < l; i++){
@@ -28,7 +30,7 @@ function initializeOptions(){
         filteredOptions.push(option);
         cardict[car["id"]] = option; 
       }
-      sortByPrice()
+      sortByPrice();
     })
 }
 

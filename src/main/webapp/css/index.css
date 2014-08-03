@@ -47,7 +47,9 @@ img.splash-logo{
 /*login*/
 
 .login-credentials {
-  margin-bottom: 10
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .left-button {
@@ -75,6 +77,7 @@ img.splash-logo{
   margin-right: 10px;
   margin-left: 10px;
 }
+
 
 
 /*map*/
