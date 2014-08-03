@@ -35,7 +35,7 @@ CLLocationManager *locationManager;
 	//float latitude = locationManager.location.coordinate.latitude;
 	//float longitude = locationManager.location.coordinate.longitude;
 	float latitude = 37.386541;
-	float longitude = -122.067029;-.
+	float longitude = -122.067029;
 	NSString *latString = [NSString stringWithFormat:@"%f", latitude];
 	NSString *longString = [NSString stringWithFormat:@"%f", longitude];
 	NSString *latRequest = @"var lat=";
