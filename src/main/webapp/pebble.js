@@ -25,7 +25,7 @@ ajax({
 		favorites = result.user.favorites;
 		if(favorites.length == 0){
 			simply.body("You have no Favorite places to go");
-			return false;
+			return;
 		}
 		simply.subtitle("Where to?");
 		simply.body(favorites[favePointer].name);
@@ -38,21 +38,22 @@ ajax({
 
 
 var faveMover = function(e){
-	ajax({url: "" + facePointer + e},function(){});
 	if(e === "up"){
 		if(favePointer == 0){
-			return false;
+			return;
 		}
 		favePointer--;
 		simply.body(favorites[favePointer].name);
 	}else if(e === "down"){
 		if(favePointer == favorites.length-1){
-			return false;
+			return;
 		}
 		favePointer++;
 		simply.body(favorites[favePointer].name);
 	}else if(e === "select"){
-
+		
+	}else{
+		simply.body("wtf");
 	}
 }
 
