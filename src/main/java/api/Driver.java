@@ -15,6 +15,11 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
+import externalapi.Flywheel;
+import externalapi.Lyft;
+import externalapi.Sidecar;
+import externalapi.Uber;
+
 @Path("/")
 public class Driver {
 	
@@ -60,7 +65,17 @@ public class Driver {
 		if(!VALID_SERVICES.contains(data.getString("service"))){
 			return "{success: false, fail-reason: 'invalid service'}";
 		}
-		return "{success: true}";
+		boolean success = false;
+		if("uber".equals(data.getString("service"))){
+			success = Uber.login(data.getString("username"), data.getString("password")).success;
+		}else if ("lyft".equals(data.getString("service"))){
+			success = Lyft.login(data.getString("username"), data.getInt("password")).success;
+		}else if ("flywheel".equals(data.getString("service"))){
+			success = Flywheel.login(data.getString("username"), data.getString("password")).success;
+		}else if ("sidecar".equals(data.getString("service"))){
+			success = Sidecar.login(data.getString("username"), data.getString("password")).success;
+		}
+		return "{success: "+ success + "}";
 	}
 	
 	@Path("/create")
