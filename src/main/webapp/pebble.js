@@ -53,7 +53,7 @@ var faveMover = function(e){
 	}else if(e === "select"){
 		
 	}else{
-		simply.body("wtf");
+		simply.body(e);
 	}
 }
 
