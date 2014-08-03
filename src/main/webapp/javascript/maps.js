@@ -61,6 +61,23 @@ function initialize() {
 
     // For each place, get the icon, place name, and location.
     markers = [];
+		for (var i = 0; i < faves.length; i++){
+      var image = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+      var marker = new google.maps.Marker({
+        map: map,
+        icon: image,
+        title: faves[i].name,
+        position: new google.maps.LatLng(faves[i].lat, faves[i].long)
+      });
+      markers.push(marker);
+      bounds.extend(place.geometry.location);
+		}
     var bounds = new google.maps.LatLngBounds();
     for (var i = 0, place; place = places[i]; i++) {
       var image = {

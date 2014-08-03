@@ -20,7 +20,7 @@ CLLocationManager *locationManager;
 
     [super viewDidLoad];
 	NSLog(@"hello1");
-	NSString *fullURL = @"file:///Users/RahulDatta/Documents/Development/hackathon/driver/src/main/webapp/index.html#options";
+	NSString *fullURL = @"file:///Users/RahulDatta/Documents/Development/hackathon/driver/src/main/webapp/index.html";
 	NSLog(@"hello2");
     NSURL *url = [NSURL URLWithString:fullURL];
 	NSLog(@"hello3");
