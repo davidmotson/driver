@@ -8,6 +8,16 @@ var PageNames = {
   "login-flywheel": "Login to Flywheel",
 }
 
+var PageNamesHash = {
+  "#login": "Login to driver",
+  "#signup": "Create a Driver Account",
+  "#login-uber": "Login to Uber",
+  "#login-lyft": "Login to Lyft",
+  "#login-sidecar": "Login to Sidecar",
+  "#login-flywheel": "Login to Flywheel",
+}
+
+
 function goto(page_id) {
   $(".page").hide();
   $("#"+page_id).show();
@@ -35,8 +45,8 @@ $(document).ready(function(){
     
   if($(window.location.hash).length > 0){
     $(window.location.hash).show();
-    if(PageNames[window.location.hash]){
-      $("#page-header").text(PageNames[window.location.hash]);
+    if(PageNamesHash[window.location.hash]){
+      $("#page-header").text(PageNamesHash[window.location.hash]);
     } else {
       $("#page-header").text("");
       $("#page-header").hide();

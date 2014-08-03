@@ -107,7 +107,7 @@ $(document).ready(function(){
 
   $("validate-lyft-credentials").click(function(){ 
     var username = $("#lyft-email").val();
-    var password = $("#lyft-password").val();
+    var password = $("#lyft-code").val();
     $.ajax({
       url: '/api/credtest',
       type: 'POST',
@@ -123,6 +123,8 @@ $(document).ready(function(){
       } else {
         error.text("There was an error with your Username/Password");
         error.show();
+        $("pre-lyft-text").show();
+        $("post-lyft-text").hide();
       }
     });
   });
@@ -132,8 +134,14 @@ $(document).ready(function(){
     e.preventDefault();
   })
   sendLyftCode = function(){
-    var phone = $("#lyft-phone").text();
-    //Lyft send code? 
+    var phone = $("#lyft-phone").val();
+    $.ajax({
+      url: '/api/getcode/'+phone,
+      type: 'GET',
+    }).done(function(){
+      $("pre-lyft-text").hide();
+      $("post-lyft-text").show();
+    })
   }
 
   $("validate-sidecar-credentials").click(function(){ 
@@ -196,8 +204,8 @@ $(document).ready(function(){
             password: $("#uber-password").val(),
           },
           lyft: {
-            username: $("#lyft-email").val(),
-            password: $("#lyft-password").val(),
+            username: $("#lyft-phone").val(),
+            password: $("#lyft-code").val(),
           }, 
           sidecar: {
             username: $("#sidecar-email").val(),
