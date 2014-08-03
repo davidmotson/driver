@@ -155,7 +155,85 @@ div#searchLocation{
   font-size: 13px;
   font-weight: 300;
 }
+/*options*/
+.footer{
+	padding-left:10px;
+	position: fixed;
+	bottom: 13px;
+}
+#opt_btn_s{
+	background-color: #1c5bd7;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #1648aa;
+	display:inline-block;
+	color:#ffffff;
+	height: 35px;
+}
 
+#opt_btn_f{
+	background-color: #64e322;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #4fba18;
+	display:inline-block;
+	color:#ffffff;
+	height: 35px;
+}
+#opt_btn_b{
+	background-color: #4A4A4A;
+	-webkit-border-top-left-radius:20px;
+	-moz-border-radius-topleft:20px;
+	border-top-left-radius:20px;
+	-webkit-border-top-right-radius:20px;
+	-moz-border-radius-topright:20px;
+	border-top-right-radius:20px;
+	-webkit-border-bottom-right-radius:20px;
+	-moz-border-radius-bottomright:20px;
+	border-bottom-right-radius:20px;
+	-webkit-border-bottom-left-radius:20px;
+	-moz-border-radius-bottomleft:20px;
+	border-bottom-left-radius:20px;
+	text-indent:0;
+	border:1px solid #2B2B2B;
+	height: 35px;
+	display:inline-block;
+	color:#ffffff;
+}
+#filter{
+	margin-bottom: -34px;
+	margin-left:50%;
+}
+#both{
+	margin-left: 200%;
+	background-color:#1c5bd7;
+}
+#sort{
+	margin-left: 350%;
+	margin-top : -34px;
+}
 /*selection page*/
 .car_view{
 	background-size: 100%, 45%;
