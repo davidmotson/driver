@@ -19,22 +19,22 @@ CLLocationManager *locationManager;
 {
 
     [super viewDidLoad];
-	NSString *fullURL = @"http://107.150.8.38:8080/driver/";
+	NSLog(@"hello1");
+	NSString *fullURL = @"file:///Users/RahulDatta/Documents/Development/hackathon/driver/src/main/webapp/index.html";
+	NSLog(@"hello2");
     NSURL *url = [NSURL URLWithString:fullURL];
+	NSLog(@"hello3");
     NSURLRequest *requestObj = [NSURLRequest requestWithURL:url];
+	NSLog(@"hello4");
     [_viewWeb loadRequest:requestObj];
-	locationManager = [[CLLocationManager alloc] init];
+	/*locationManager = [[CLLocationManager alloc] init];
     locationManager.distanceFilter = kCLDistanceFilterNone;
     locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters;
-    [locationManager startUpdatingLocation];
-		
-}
-
-- (void)viewDidAppear
-{
+    [locationManager startUpdatingLocation];*/
+	
 	//float latitude = locationManager.location.coordinate.latitude;
 	//float longitude = locationManager.location.coordinate.longitude;
-	float latitude = 37.386541;
+	/*float latitude = 37.386541;
 	float longitude = -122.067029;
 	NSString *latString = [NSString stringWithFormat:@"%f", latitude];
 	NSString *longString = [NSString stringWithFormat:@"%f", longitude];
@@ -43,7 +43,7 @@ CLLocationManager *locationManager;
 	NSString *semi = @";";
 	NSString *space = @" ";
 	NSString *jsInject = [NSString stringWithFormat:@"%@%@%@%@%@%@%@", latRequest,latString, semi, space, lonRequest, longString, semi];
-	[_viewWeb stringByEvaluatingJavaScriptFromString:jsInject];
+	[_viewWeb stringByEvaluatingJavaScriptFromString:jsInject];*/
 }
 
 - (void)didReceiveMemoryWarning
