@@ -47,7 +47,7 @@ $(document).ready(function(){
     username = $("#login-username").val();
     password = $("#login-password").val();
     $.ajax({
-      url: '/api/login', 
+      url: '/driver/api/login', 
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -87,7 +87,7 @@ $(document).ready(function(){
     var username = $("#uber-email").val();
     var password = $("#uber-password").val();
     $.ajax({
-      url: '/api/credtest',
+      url: '/driver/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -109,7 +109,7 @@ $(document).ready(function(){
     var username = $("#lyft-email").val();
     var password = $("#lyft-code").val();
     $.ajax({
-      url: '/api/credtest',
+      url: '/driver/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -136,7 +136,7 @@ $(document).ready(function(){
   sendLyftCode = function(){
     var phone = $("#lyft-phone").val();
     $.ajax({
-      url: '/api/getcode/'+phone,
+      url: '/driver/api/getcode/'+phone,
       type: 'GET',
     }).done(function(){
       $("pre-lyft-text").hide();
@@ -148,7 +148,7 @@ $(document).ready(function(){
     var username = $("#sidecar-phone").val();
     var password = $("#sidecar-password").val();
     $.ajax({
-      url: '/api/credtest',
+      url: '/driver/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -171,7 +171,7 @@ $(document).ready(function(){
     var username = $("#flywheel-email").val();
     var password = $("#flywheel-password").val();
     $.ajax({
-      url: '/api/credtest',
+      url: '/driver/api/credtest',
       type: 'POST',
       data: JSON.stringify({ 
         username: username,
@@ -193,7 +193,7 @@ $(document).ready(function(){
   $("#driver-signup").click(function(){
     if (validateFlywheelCredentials()){
       $.ajax({
-        url: '/api/create',
+        url: '/driver/api/create',
         type: 'POST',
         data: JSON.stringify({
           username: $("#driver-email").val(),
