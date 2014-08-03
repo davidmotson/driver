@@ -1,0 +1,8 @@
+.type , 
+.subtype {
+  font-weight: bold;
+}
+
+.selected-option {
+  font-weight: bold;
+}
