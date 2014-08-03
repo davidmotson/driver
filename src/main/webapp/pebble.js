@@ -16,6 +16,9 @@ ajax({
 	url: "http://107.150.8.38:8080/driver/api/login",
 	type: "json",
 	data: {username: username, password: password},
+	async: true
 }, function(result){
-	simply.body(""+result);
+	simply.body("this should be success");
+},function(result){
+	simply.body("this should be failure");
 });
