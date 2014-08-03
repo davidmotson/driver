@@ -180,16 +180,16 @@ public class Driver {
 		if(!data.has("token")){
 			return "{success: false, fail-reason: 'no token'}";
 		}
-		if(!data.has("long-start")){
+		if(!data.has("longStart")){
 			return "{success: false, fail-reason: 'no long-start'}";
 		}
-		if(!data.has("long-end")){
+		if(!data.has("longEnd")){
 			return "{success: false, fail-reason: 'no long-end'}";
 		}
-		if(!data.has("lat-end")){
+		if(!data.has("latEnd")){
 			return "{success: false, fail-reason: 'no lat-end'}";
 		}
-		if(!data.has("lat-start")){
+		if(!data.has("latStart")){
 			return "{success: false, fail-reason: 'no lat-start'}";
 		}
 		return "{summoned: {car-image-url: 'http://lyftapi.s3.amazonaws.com/production/photos/320x200/1238612373_car.jpg', driver-image-url: 'https://lyftapi.s3.amazonaws.com/production/photos/320x200/1238612373_driver.jpg',type: 'uber', id: 5, eta: 300, price: 100, phone-number: '9139530509', car-desc: 'pimp as fuck'}}";
