@@ -5,6 +5,7 @@ var long = -122.066665;
 var token;
 var favePointer = 0;
 var favorites;
+var carPointer = 0;
 var cars;
 var summoned;
 simply.fullscreen(true);
@@ -58,8 +59,49 @@ var faveMover = function(e){
 		ajax({
 			url: 'http://107.150.8.38:8080/driver/api/info?token='+token+'&lat-start='+lat+'&long-start='+long+'&lat-end='+favorites[favePointer].lat+'&long-end='+favorites[favePointer].long,
 		},function(e){
-			simply.body(e);
-		})
+			simply.off('singleClick');
+			cars = [{
+				type: 'uberx',
+				price: 854,
+				eta: 300
+			},{
+				type: 'uberxL',
+				price: 1283,
+				eta: 300
+			},{
+				type: 'lyft',
+				price: 763,
+				eta: 342,
+			},{
+				type: 'sidecar',
+				price: 1023,
+				eta: 219,
+			}];
+			simply.on('singleClick',carMover);
+			simply.subtitle(car[carPointer].type);
+			simply.body("$"+car[carPointer].price/100);
+		});
+	}
+}
+
+var carMover = function(e){
+	if(e.button === "up"){
+		if(carPointer == 0){
+			return;
+		}
+		carPointer--;
+		simply.subtitle(car[carPointer].type);
+		simply.body("$"+car[carPointer].price/100);
+	}else if(e.button === "down"){
+		if(carPointer == cars.length-1){
+			return;
+		}
+		carPointer++;
+		simply.subtitle(car[carPointer].type);
+		simply.body("$"+car[carPointer].price/100);
+	}else if(e.button === "select"){
+		simply.subtitle("Fetching Ride");
+		simply.body("Please Wait...")
 	}
 }
 
