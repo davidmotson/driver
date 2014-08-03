@@ -30,8 +30,8 @@ function initializeCarOptions(){
                 {type: "Sidecar", id: 3, subtype: "", eta: "Tan Mitsubishi Outlander", price: "13"}]
         var l = cars.length;
         for(i = 0; i < l; i++){
-          console.log(car);
           car = cars[i];
+          console.log(car);
           option = newOption(car.price, car.eta, car.id, car.type, car.subtype)
           filteredOptions.push(option);
           cardict[car.id] = option; 
