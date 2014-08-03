@@ -1,10 +1,15 @@
 package api;
 
+import helpers.Car;
 import helpers.DBHelper;
 import helpers.Favorite;
+import helpers.SidecarWrapper;
 import helpers.User;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
@@ -56,6 +61,7 @@ public class Driver {
 			String token = generateToken();
 			sessions.put(token, user);
 			user.timeout = System.currentTimeMillis() + 7200000;
+			user.flywheelToken = Flywheel.login(user.getEmail(), user.getEmail()).token;
 			return "{success: true, token: '" + token + "', user: " + user.toJsonObject().toString()+"}";
 		}
 		return "{success: false}";
@@ -141,20 +147,27 @@ public class Driver {
 						  @QueryParam("lat-start") double latStart,
 						  @QueryParam("lat-end") double latEnd){
 		
+		if(!sessions.containsKey(token)){
+			return "{success: false}";
+		}
+		User user = sessions.get(token);
 		JSONObject output = new JSONObject();
 		JSONArray cars = new JSONArray();
-		for(int i=0; i<10; i++){
-			JSONObject car = new JSONObject();
-			car.put("id", i);
-			car.put("type", VALID_SERVICES.get(generator.nextInt(VALID_SERVICES.size())));
-			car.put("eta", 300 + (generator.nextInt(300)-150));
-			car.put("price", 1000 + (generator.nextInt(1000)-500));
-			if(car.getString("type").equals("uber") && generator.nextBoolean()){
-				car.put("subtype", "Uber XL");
-			}
-			cars.put(car);
+		List<Car> carList = new ArrayList<Car>();
+		SidecarWrapper sc = Sidecar.getPrices(user.getPhoneNumber(), user.getSidecarPassword(), latStart, latEnd, longStart, longEnd);
+		Car[] uber = Uber.getPrices(latStart, latEnd, longStart, longEnd);
+		Car flywheel = Flywheel.getPrice(latStart, longStart, sc.time, sc.space);
+		Car lyft = Lyft.getPrice(sc.time, sc.space);
+		carList.addAll(Arrays.asList(uber));
+		carList.addAll(Arrays.asList(sc.cars));
+		carList.add(flywheel);
+		carList.add(lyft);
+		Collections.sort(carList);
+		for(Car x : carList){
+			cars.put(x.toJSONObject());
 		}
-		output.put("cars",cars);
+		output.put("cars", cars);
+		output.put("success", true);
 		
 		return output.toString();
 	}

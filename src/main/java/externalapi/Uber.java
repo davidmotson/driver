@@ -1,10 +1,13 @@
 package externalapi;
 
+import helpers.Car;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
+import javax.ws.rs.core.Form;
 
 import org.json.JSONObject;
 
@@ -36,6 +39,51 @@ public class Uber {
 			return new Uber(false);
 		}
 		return new Uber(output.getString("token"),output.getJSONObject("client"));
+	}
+	
+	public static Car[] getPrices(double startLat, double endLat, double startLong, double endLong){
+		Form post = new Form()
+			.param("origin_lat", ""+startLat)
+			.param("origin_lng", ""+startLong)
+			.param("destination_lng", ""+endLong)
+			.param("destination_lat", ""+endLat)
+			.param("vehicle_view_ids[]", "8")
+			.param("vehicle_view_ids[]", "942")
+			.param("vehicle_view_ids[]", "1")
+			.param("vehicle_view_ids[]", "2");
+		JSONObject data = new JSONObject(ClientBuilder.newClient()
+				.target("https://www.uber.com/api/fares/multi_estimate")
+				.request().post(Entity.form(post)).readEntity(String.class));
+		Car[] output = new Car[data.getJSONArray("estimates").length()];
+		for(int i=0;i<output.length;i++){
+			JSONObject car = data.getJSONArray("estimates").getJSONObject(i);
+			output[i] = new Car(2,"uber",car.getJSONObject("vehicle_view").getString("display_name"),parsePrice(car.getString("fare_string")),300);
+		}
+		return output;
+	}
+
+	private static int parsePrice(String price) {
+		if(price.contains("-")){
+			String price1 = "";
+			String price2 = "";
+			boolean swap = false;
+			for(char x : price.toCharArray()){
+				if (x == '-'){
+					swap = true;
+					continue;
+				}
+				if (x != '$'){
+					if (swap){
+						price1 += x;
+					}else{
+						price2 += x;
+					}
+				}
+			}
+			return (Integer.parseInt(price1) + Integer.parseInt(price2))*50;
+		}else{
+			return (Integer.parseInt(price.replaceAll("$", "")))*100;
+		}
 	}
 
 	private static String hashPass(String pass){
