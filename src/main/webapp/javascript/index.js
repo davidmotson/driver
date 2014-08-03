@@ -3,8 +3,10 @@ function goto(page_id) {
   $(".page").hide();
   $("#"+page_id).show();
   $("header").show();
+  $("#error-msg").text("");
+  $("#error-msg").hide();
   if(page_id == "map"){
-    initialize();
+    //initialize();
   }
 }
 

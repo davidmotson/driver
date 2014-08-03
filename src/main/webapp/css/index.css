@@ -63,6 +63,15 @@ img.splash-logo{
   margin-left: 10;
 }
 
+.center-button {
+  position: relative;
+  text-align: center;
+  margin-top: 10px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+
 /*map*/
 
 #map-canvas{
