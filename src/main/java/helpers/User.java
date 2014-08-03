@@ -66,7 +66,7 @@ public class User {
 		output.put("email", email);
 		output.put("phone-number", phoneNumber);
 		JSONArray favorites = new JSONArray();
-		if(favorites != null){
+		if(this.favorites != null){
 			for(Favorite x : this.favorites){
 				favorites.put(x.toJsonObject());
 			}
