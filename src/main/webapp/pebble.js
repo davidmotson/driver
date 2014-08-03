@@ -6,6 +6,7 @@ var favorites;
 var cars;
 var summoned;
 simply.fullscreen(true);
+simply.scrollable(true);
 simply.text({
 	title: "Driver",
 	subtitle: "Welcome to Driver",
@@ -25,7 +26,7 @@ ajax({
 		favorites = result.favorites;
 		if(favorites.length == 0){
 			simply.body("You have no Favorite places to go");
-			return;
+			return false;
 		}
 		simply.subtitle("Where to?");
 		simply.body(favorites[favePointer].name);
@@ -40,13 +41,13 @@ ajax({
 var faveMover = function(e){
 	if(e === "up"){
 		if(favePointer == 0){
-			return;
+			return false;
 		}
 		favePointer--;
 		simply.body(favorites[favePointer].name);
 	}else if(e === "down"){
 		if(favePointer == favorites.length-1){
-			return;
+			return false;
 		}
 		favePointer++;
 		simply.body(favorites[favePointer].name);
