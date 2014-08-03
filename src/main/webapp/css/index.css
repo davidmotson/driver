@@ -143,12 +143,12 @@ div#searchLocation{
 }
 
 /*selection page*/
-.car_view{
+#car_view{
 	background-size: 100%, 45%;
 	width: 100%;
 	height: 35%;
 }
-.driver_profile{
+#driver_profile{
 	display: block;
 	margin-left: auto;
 	margin-right: 75%;

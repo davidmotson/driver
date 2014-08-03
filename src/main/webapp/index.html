@@ -9,6 +9,7 @@
     <script src="javascript/index.js"> </script>
     <script src="javascript/login.js"> </script>
     <script src="javascript/maps.js"> </script>
+		<script src="javascript/selection.js"> </script>
 
     <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
 
@@ -116,24 +117,24 @@
     </div>
 
     <div id="selection" class="page">
-			<img class="car_view" src="car_holder.png">
+			<img id="car_view" src="car_holder.png">
 
-			<img class="driver_profile" src="blankface.jpg">
+			<img id="driver_profile" src="blankface.jpg">
 			<div class="driver_info">
 				<div id="driver_name">Bill Gates</div>
 				<div id="phone_num">214-555-5555</div>
 			</div>
 			<div class="eta">
 				<div id="eta_time">5 min</div>
-				<div id="eta_str">to arrival</div>
+				<div id="eta_str">to pickup</div>
 			</div>
 			<div class="car_info">
 				<div id="car_desc">Red Honda Civic '09</div>
 				<div id="lic_num">License#: GETALYF</div>
 			</div>
 		 	<div class="action_btn">
-				<a href=""><img id="cancel" src="cancel.png"></div></a>
-				<a href=""><img id="call" src="call.png"></div></a>
+				<a id="cancel_link" href=""><img id="cancel" src="cancel.png"></div></a>
+				<a id="call_link" href=""><img id="call" src="call.png"></div></a>
 		 	</div>
     </div>
 
