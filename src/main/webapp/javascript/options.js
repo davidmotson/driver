@@ -46,10 +46,9 @@ function sortPriceHelper(op1, op2){
 }
 
 function sortByPrice(){
-  $("#options-table").each(function(i, e){
+  $("#options-list").children().each(function(i, e){
     if(e.attr(id) != "tempListItem") e.remove();
   });
-  filteredOption = [];
   filteredOptions.sort(sortPriceHelper);
   sorted = filteredOptions;
   l = sorted.length;
@@ -63,7 +62,7 @@ function sortTimeHelper(op1, op2){
 }
 
 function sortByTime(){
-  $("#options-table").each(function(i, e){
+  $("#options-list").children().each(function(i, e){
     if(e.attr(id) != "tempListItem") e.remove();
   });
   filteredOptions.sort(sortPriceHelper);
@@ -109,8 +108,6 @@ function callCar(id){
 }
 
 $(document).ready(function(){
-  test = newOption(5, 4, 3, "Lyft", "Car")
-  addDOMOption(test);
   $("#opt_btn_f").click(function(){
     sortByPrice();
   });
