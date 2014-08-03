@@ -10,12 +10,7 @@ simply.text({
 	body: "Logging in..."
 });
 
-ajax({
-	url: "http://107.150.8.38:8080/driver/api/login",
-	type: "json",
-	data: {username: username, password: password},
-	async: true
-}, function(result){
+ajax({url: "http://107.150.8.38:8080/driver/api/login",type: "json",data: {username: username, password: password},method: "post"}, function(result){
 	simply.vibe();
 },function(result){
 	simply.vibe();
