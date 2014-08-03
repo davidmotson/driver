@@ -1,5 +1,7 @@
 package externalapi;
 
+import helpers.Car;
+
 import javax.ws.rs.client.ClientBuilder;
 import javax.ws.rs.client.Entity;
 
@@ -51,6 +53,17 @@ public class Lyft {
 		}else{
 			return new Lyft(output.getJSONObject("user"),output.getJSONObject("user").getString("lyftToken"));
 		}
+	}
+	
+	public static Car getPrice(int duration, double length){
+		JSONObject prices = new JSONObject(ClientBuilder.newClient()
+				.target("https://www.lyft.com/api/help?article=1263247&")
+				.request().get().readEntity(String.class)).getJSONObject("pricing");
+		int price = (int) Math.round(prices.getDouble("pickupCharge")*100);
+		price += prices.getDouble("Trust & Safety Fee")*100;
+		price += prices.getDouble("costPerMile")*100*length;
+		price += prices.getDouble("costPerMinute")*duration*100/60;
+		return new Car(6,"sidecar","",price,250);
 	}
 
 }
