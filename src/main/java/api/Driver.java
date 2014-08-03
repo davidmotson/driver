@@ -35,7 +35,7 @@ import externalapi.Uber;
 public class Driver {
 	
 	List<String> VALID_SERVICES = new ArrayList<String>();
-	HashMap<String,User> sessions = new HashMap<String,User>();
+	ArrayList<User> session = new ArrayList<User>();
 	Random generator = new Random();
 	
 	{
@@ -59,7 +59,8 @@ public class Driver {
 		User user = DBHelper.getUser(data.getString("username"), data.getString("password"));
 		if(user != null){
 			String token = generateToken();
-			sessions.put(token, user);
+			user.token = token;
+			session.add(user);
 			user.timeout = System.currentTimeMillis() + 7200000;
 			user.flywheelToken = Flywheel.login(user.getEmail(), user.getEmail()).token;
 			return "{\"success\": true, \"token\": \"" + token + "\", \"user\": " + user.toJsonObject().toString()+"}";
@@ -147,13 +148,10 @@ public class Driver {
 						  @QueryParam("lat-start") double latStart,
 						  @QueryParam("lat-end") double latEnd){
 		
-		JSONObject output1 = new JSONObject();
-		output1.put("test", token);
-		if(!sessions.containsKey(token)){
-			output1.put("success", false);
-			return output1.toString();
+		User user = getUser(token);
+		if(user == null){
+			return "{success: false}";
 		}
-		User user = sessions.get(token);
 		JSONObject output = new JSONObject();
 		JSONArray cars = new JSONArray();
 		List<Car> carList = new ArrayList<Car>();
@@ -223,7 +221,7 @@ public class Driver {
 		}
 		return "{success: true}";
 	}
-	
+/*	
 	@Path("/favorite")
 	@POST
 	@Produces(MediaType.APPLICATION_JSON)
@@ -279,7 +277,7 @@ public class Driver {
 			output.put(x.toJsonObject());
 		}
 		return "{success: true, faves: "+ output.toString()+"}";
-	}
+	}*/
 	
 	private static final String alphaNum = "ABCDEFGHIJLKMNOPQRTSUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
 	
@@ -289,6 +287,15 @@ public class Driver {
 			token.append(alphaNum.charAt(generator.nextInt(alphaNum.length())));
 		}
 		return token.toString();
+	}
+	
+	private User getUser(String token){
+		for(User x : session){
+			if(x.token.equals(token)){
+				return x;
+			}
+		}
+		return null;
 	}
 	
 	
