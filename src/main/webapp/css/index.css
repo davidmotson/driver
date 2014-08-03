@@ -142,3 +142,71 @@ div#searchLocation{
   font-weight: 300;
 }
 
+/*selection page*/
+.car_view{
+	background-size: 100%, 45%;
+	width: 100%;
+	height: 35%;
+}
+.driver_profile{
+	display: block;
+	margin-left: auto;
+	margin-right: 75%;
+	margin-top: 15px;
+	background-size: 30%, 30%;
+  width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	-webkit-border-radius: 35px;
+	-moz-border-radius: 35px;
+	box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+	-moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+}
+.driver_info{
+	margin-top: -55px;
+	padding-right: 50px;
+}
+#driver_name{
+	font-size: 20px;
+}
+#phone_num{
+	margin-left:-10px;
+	font-size: 12px;
+}
+
+.eta{
+	margin-top: -43px;
+	margin-left: 70%;
+}
+#eta_time{
+	font-size: 21px;
+}
+#eta_str{
+	font-size: 13px;
+}
+.car_info{
+	margin-right: 50%;
+	margin-top: 7%;
+}
+#car_desc{
+	font-size: 15px;
+	padding-left: 20px;
+}
+#lic_num{
+	font-size: 13px;
+}
+.action_btn{
+}
+#cancel{
+	width: 70px;
+	height: 70px;
+	margin-right: 60%;
+	margin-top: 10%;
+}
+#call{
+	width: 70px;
+	height: 70px;
+	margin-top: -22%;
+	margin-left: 60%;
+}

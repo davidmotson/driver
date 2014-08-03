@@ -20,7 +20,7 @@ CLLocationManager *locationManager;
 
     [super viewDidLoad];
 	NSLog(@"hello1");
-	NSString *fullURL = @"http://localhost:8080/driver";
+	NSString *fullURL = @"file:///Users/RahulDatta/Documents/Development/hackathon/driver/src/main/webapp/index.html#selection";
 	NSLog(@"hello2");
     NSURL *url = [NSURL URLWithString:fullURL];
 	NSLog(@"hello3");
