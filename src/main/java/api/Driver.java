@@ -62,7 +62,7 @@ public class Driver {
 			sessions.put(token, user);
 			user.timeout = System.currentTimeMillis() + 7200000;
 			user.flywheelToken = Flywheel.login(user.getEmail(), user.getEmail()).token;
-			return "{\"success\": true, \"token\": '" + token + "', \"user\": " + user.toJsonObject().toString()+"}";
+			return "{\"success\": true, \"token\": \"" + token + "\", \"user\": " + user.toJsonObject().toString()+"}";
 		}
 		return "{\"success\": false}";
 		

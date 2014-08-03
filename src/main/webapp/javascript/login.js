@@ -58,7 +58,7 @@ $(document).ready(function(){
       if(data["success"]){
         faves = data["fave-locs"];
         token = data["token"];
-        document.cookie="token="+token; 
+        document.cookie=token; 
         goto('map');
       } else {
         error.text(data["fail-reason"]);
