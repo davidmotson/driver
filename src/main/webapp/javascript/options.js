@@ -19,20 +19,21 @@ function initializeCarOptions(){
     $.ajax({ 
       url: '/driver/api/info?token='+token+'&lat-start='+lat+'&lat-end='+destLat+
             '&long-start='+lon+'&long-end='+destLong,
-      type: 'GET'
-    }).done(function(data){
-      console.log("here");
-      console.log(data);
-      cars = data.cars;
-      var l = cars.length;
-      for(i = 0; i < l; i++){
-        console.log(car);
-        car = cars[i];
-        option = newOption(car.price, car.eta, car.id, car.type, car.subtype)
-        filteredOptions.push(option);
-        cardict[car.id] = option; 
+      type: 'GET',
+      success: function(data){
+        console.log("here");
+        console.log(data);
+        cars = data.cars;
+        var l = cars.length;
+        for(i = 0; i < l; i++){
+          console.log(car);
+          car = cars[i];
+          option = newOption(car.price, car.eta, car.id, car.type, car.subtype)
+          filteredOptions.push(option);
+          cardict[car.id] = option; 
+        }
+        sortByPrice();
       }
-      sortByPrice();
     })
 }
 
