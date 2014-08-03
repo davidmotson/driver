@@ -2,6 +2,14 @@ html {
   text-align: center;
 }
 
+header {
+  background-color: #0970B9;
+  color: white;
+  font-style: helvetica;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+
 body {
   background-color: white; 
 }
@@ -15,7 +23,7 @@ body {
 }
 
 .left-button {
-  position:relative
+  position: absolute;
   bottom: 10;
   left:10;
   text-align: left;
@@ -24,7 +32,7 @@ body {
 }
 
 .right-button {
-  position:relative
+  position: absolute;
   bottom: 10;
   right:10;
   text-align: right;
