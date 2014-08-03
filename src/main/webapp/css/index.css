@@ -18,6 +18,12 @@ body {
   display: none;
 }
 
+.splash-logo.resize{
+    width:540px; /* you can use % */
+    height: auto;
+}
+
+
 /*login*/
 
 .login-credentials {
