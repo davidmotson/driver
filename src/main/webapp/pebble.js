@@ -16,8 +16,11 @@ ajax({
 	type: 'json',
 	data: {username: username, password: password},
 }, function(result){
-	simply.body(result)
+	if(!result.success){
+		simply.body("Error Logging In");
+	}else{
+		token = result.token;
+	}
 },function(result){
-	simply.body(result);
-	simply.title("error");
+	simply.body("Error Logging In");
 });
