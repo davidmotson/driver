@@ -56,14 +56,7 @@ var faveMover = function(e){
 		simply.subtitle("Getting Ride Info!");
 		simply.body("Please Wait...");
 		ajax({
-			url: 'http://107.150.8.38:8080/driver/api',
-			data: {
-				token: token ,
-				lat-end: favorites[favePointer].lat ,
-				long-end: favorites[favePointer].long ,
-				lat-start: lat ,
-				long-start: long
-			}
+			url: 'http://107.150.8.38:8080/driver/api?token='+token+'&lat-start='+lat+'&long-start='+long+'&lat-end='+favorites[favePointer].lat+'&long-end='+favorites[favePointer].long,
 		},function(e){
 			simply.body(e);
 		})
