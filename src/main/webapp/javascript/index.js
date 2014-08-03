@@ -16,15 +16,13 @@ function goto(page_id) {
   $("#error-msg").hide();
   if(PageNames[page_id]){
     $("#page-header").text(PageNames[page_id]);
+
   } else {
     $("#page-header").text("");
   }
-  if(page_id = "options") {
-    initializeOptions();
-  }
   $("#header-logo").show();
   if(page_id == "map"){
-    //initialize();
+    initialize();
   }
 }
 
